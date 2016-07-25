@@ -22,7 +22,7 @@
   -->
   <!-- W3C style sheet will be added here during processing. -->
 <link rel="stylesheet" title="Default" href="style/svg.css" type="text/css" media="screen"/><link rel="alternate stylesheet" title="Only annotations for publication" href="style/default_no_maturity.css" type="text/css" media="screen"/><link rel="alternate stylesheet" title="No issues/annotations" href="style/default_no_issues.css" type="text/css" media="screen"/><link rel="stylesheet" href="//www.w3.org/StyleSheets/TR/2016/W3C-ED" type="text/css" media="screen"/><script src="style/link-fixup.js"></script></head>
-<body class="chapter-struct"><div class="header top"><span class="namedate">SVG 2 – 13 July 2016</span> <a href="Overview.html">Top</a> ⋅ <a href="toc.html">Contents</a> ⋅ <a href="types.html">Previous</a> ⋅ <a href="styling.html">Next</a> ⋅ <a href="eltindex.html">Elements</a> ⋅ <a href="attindex.html">Attributes</a> ⋅ <a href="propidx.html">Properties</a></div>
+<body class="chapter-struct"><div class="header top"><span class="namedate">SVG 2 – 25 July 2016</span> <a href="Overview.html">Top</a> ⋅ <a href="toc.html">Contents</a> ⋅ <a href="types.html">Previous</a> ⋅ <a href="styling.html">Next</a> ⋅ <a href="eltindex.html">Elements</a> ⋅ <a href="attindex.html">Attributes</a> ⋅ <a href="propidx.html">Properties</a></div>
 
 <h1>Chapter 4: Document Structure</h1><nav id="toc"><h2 id="Contents" class="contents">Contents</h2><ol class="toc"><li><ol class="toc"><li><a href="struct.html#NewDocument"><span class="secno">4.1.</span> Defining an SVG document fragment: the <span class="element-name">‘svg’</span> element</a><ol class="toc"><li><a href="struct.html#NewDocumentOverview"><span class="secno">4.1.1.</span> Overview</a></li><li><a href="struct.html#Namespace"><span class="secno">4.1.2.</span> Namespace</a></li><li><a href="struct.html#Definitions"><span class="secno">4.1.3.</span> Definitions</a></li><li><a href="struct.html#SVGElement"><span class="secno">4.1.4.</span> The <span class="element-name">‘svg’</span> element</a></li></ol></li><li><a href="struct.html#Groups"><span class="secno">4.2.</span> Grouping: the <span class="element-name">‘g’</span> element</a><ol class="toc"><li><a href="struct.html#GroupsOverview"><span class="secno">4.2.1.</span> Overview</a></li><li><a href="struct.html#GElement"><span class="secno">4.2.2.</span> The <span class="element-name">‘g’</span> element</a></li></ol></li><li><a href="struct.html#UnknownElement"><span class="secno">4.3.</span> Unknown elements</a></li><li><a href="struct.html#Head"><span class="secno">4.4.</span> Defining content for reuse, and the <span class="element-name">‘defs’</span> element</a><ol class="toc"><li><a href="struct.html#Overview"><span class="secno">4.4.1.</span> Overview</a></li><li><a href="struct.html#DefsElement"><span class="secno">4.4.2.</span> The <span class="element-name">‘defs’</span> element</a></li></ol></li><li><a href="struct.html#DescriptionAndTitleElements"><span class="secno">4.5.</span> The <span class="element-name">‘desc’</span>
 and <span class="element-name">‘title’</span> elements</a><ol class="toc"><li><a href="struct.html#DescriptionDefinitions"><span class="secno">4.5.1.</span> Definition</a></li></ol></li><li><a href="struct.html#MetadataElement"><span class="secno">4.6.</span> The <span class="element-name">‘metadata’</span> element</a></li><li><a href="struct.html#SymbolElement"><span class="secno">4.7.</span> The <span class="element-name">‘symbol’</span> element</a><ol class="toc"><li><a href="struct.html#SymbolAttributes"><span class="secno">4.7.1.</span> Attributes</a></li><li><a href="struct.html#SymbolNotes"><span class="secno">4.7.2.</span> Notes on symbols</a></li></ol></li><li><a href="struct.html#UseElement"><span class="secno">4.8.</span> The <span class="element-name">‘use’</span> element</a><ol class="toc"><li><a href="struct.html#UseAttributes"><span class="secno">4.8.1.</span> Attributes</a></li><li><a href="struct.html#UseHref"><span class="secno">4.8.2.</span> Resolving cross-references</a></li><li><a href="struct.html#UseShadowTree"><span class="secno">4.8.3.</span> The use-element shadow tree</a></li><li><a href="struct.html#UseLayout"><span class="secno">4.8.4.</span> Layout of re-used graphics</a></li><li><a href="struct.html#UseStyleInheritance"><span class="secno">4.8.5.</span> Style Scoping and Inheritance</a></li><li><a href="struct.html#UseMultimedia"><span class="secno">4.8.6.</span> Multimedia in use-element shadow trees</a></li><li><a href="struct.html#UseAnimations"><span class="secno">4.8.7.</span> Animations in use-element shadow trees</a></li><li><a href="struct.html#UseEventHandling"><span class="secno">4.8.8.</span> Event handling in use-element shadow trees</a></li></ol></li><li><a href="struct.html#ConditionalProcessing"><span class="secno">4.9.</span> Conditional processing</a><ol class="toc"><li><a href="struct.html#ConditionalProcessingOverview"><span class="secno">4.9.1.</span> Conditional processing overview</a></li><li><a href="struct.html#ConditionalProcessingDefinitions"><span class="secno">4.9.2.</span> Definitions</a></li><li><a href="struct.html#SwitchElement"><span class="secno">4.9.3.</span> The <span class="element-name">‘switch’</span> element</a></li><li><a href="struct.html#ConditionalProcessingRequiredExtensionsAttribute"><span class="secno">4.9.4.</span> The <span class="attr-name">‘requiredExtensions’</span> attribute</a></li><li><a href="struct.html#ConditionalProcessingSystemLanguageAttribute"><span class="secno">4.9.5.</span> The <span class="attr-name">‘systemLanguage’</span> attribute</a></li></ol></li><li><a href="struct.html#HTMLMetadataElements"><span class="secno">4.10.</span> HTML metadata elements</a></li><li><a href="struct.html#CommonAttributes"><span class="secno">4.11.</span> Common attributes</a><ol class="toc"><li><a href="struct.html#CommonAttributeDefinitions"><span class="secno">4.11.1.</span> Definitions</a></li><li><a href="struct.html#Core.attrib"><span class="secno">4.11.2.</span> Attributes common to all elements: <span class="attr-name">‘id’</span></a></li><li><a href="struct.html#LangSpaceAttrs"><span class="secno">4.11.3.</span> The <span class="attr-name">‘lang’</span> and <span class="attr-name">‘xml:lang’</span> attributes</a></li><li><a href="struct.html#WhitespaceProcessingXMLSpaceAttribute"><span class="secno">4.11.4.</span> The <span class="attr-name">‘xml:space’</span> attribute</a></li><li><a href="struct.html#tabindexattribute"><span class="secno">4.11.5.</span> The <span class="attr-name">‘tabindex’</span> attribute</a></li><li><a href="struct.html#DataAttributes"><span class="secno">4.11.6.</span> The <span class="attr-name">‘data-*’</span> attributes</a></li></ol></li><li><a href="struct.html#WAIARIAAttributes"><span class="secno">4.12.</span> WAI-ARIA attributes</a><ol class="toc"><li><a href="struct.html#WAIARIA-definitions"><span class="secno">4.12.1.</span> Definitions</a></li><li><a href="struct.html#roleattribute"><span class="secno">4.12.2.</span> Role attribute</a></li><li><a href="struct.html#ARIAStateandPropertyAttributes"><span class="secno">4.12.3.</span> State and property attributes (all aria- attributes)</a></li><li><a href="struct.html#implicit-aria-semantics"><span class="secno">4.12.4.</span> Implicit and Allowed ARIA Semantics</a></li></ol></li><li><a href="struct.html#DOMInterfaces"><span class="secno">4.13.</span> DOM interfaces</a><ol class="toc"><li><a href="struct.html#InterfaceDocumentExtensions"><span class="secno">4.13.1.</span> Extensions to the Document interface</a></li><li><a href="struct.html#InterfaceSVGSVGElement"><span class="secno">4.13.2.</span> Interface SVGSVGElement</a></li><li><a href="struct.html#InterfaceSVGGElement"><span class="secno">4.13.3.</span> Interface SVGGElement</a></li><li><a href="struct.html#InterfaceSVGUnknownElement"><span class="secno">4.13.4.</span> Interface SVGUnknownElement</a></li><li><a href="struct.html#InterfaceSVGDefsElement"><span class="secno">4.13.5.</span> Interface SVGDefsElement</a></li><li><a href="struct.html#InterfaceSVGDescElement"><span class="secno">4.13.6.</span> Interface SVGDescElement</a></li><li><a href="struct.html#InterfaceSVGMetadataElement"><span class="secno">4.13.7.</span> Interface SVGMetadataElement</a></li><li><a href="struct.html#InterfaceSVGTitleElement"><span class="secno">4.13.8.</span> Interface SVGTitleElement</a></li><li><a href="struct.html#InterfaceSVGSymbolElement"><span class="secno">4.13.9.</span> Interface SVGSymbolElement</a></li><li><a href="struct.html#InterfaceSVGUseElement"><span class="secno">4.13.10.</span> Interface SVGUseElement</a></li><li><a href="struct.html#InterfaceSVGUseElementShadowRoot"><span class="secno">4.13.11.</span> Interface SVGUseElementShadowRoot</a></li><li><a href="struct.html#InterfaceSVGElementInstance"><span class="secno">4.13.12.</span> Interface SVGElementInstance</a></li><li><a href="struct.html#InterfaceSVGSwitchElement"><span class="secno">4.13.13.</span> Interface SVGSwitchElement</a></li><li><a href="struct.html#InterfaceGetSVGDocument"><span class="secno">4.13.14.</span> Interface GetSVGDocument</a></li></ol></li></ol></li></ol></nav>
@@ -474,16 +474,12 @@ define a <span class="element-name">‘<a href="pservers.html#LinearGradientElem
 
 <p>Some types of element, such as gradients, will not by themselves produce a graphical result. They can therefore be placed anywhere convenient. However, sometimes it is desired to define a graphical object and prevent it from being directly rendered. it is only there to be referenced elsewhere. To do this, and to allow convenient grouping defined content, SVG provides the <span class="element-name">‘defs’</span> element.</p>
 
-<p>It is recommended that, wherever possible, referenced elements be defined
-inside of a <span class="element-name">‘<a href="struct.html#DefsElement"><span>defs</span></a>’</span> element. Among the elements that are always
-referenced: <span class="element-name">‘<a href="http://dev.w3.org/fxtf/css-masking-1/#ClipPathElement"><span>clipPath</span></a>’</span>, <span class="element-name">‘<a href="interact.html#CursorElement"><span>cursor</span></a>’</span>,
-<span class="element-name">‘<a href="http://dev.w3.org/fxtf/filters/#FilterElement"><span>filter</span></a>’</span>, <span class="element-name">‘<a href="pservers.html#LinearGradientElement"><span>linearGradient</span></a>’</span>, <span class="element-name">‘<a href="painting.html#MarkerElement"><span>marker</span></a>’</span>,
-<span class="element-name">‘<a href="http://dev.w3.org/fxtf/css-masking-1/#MaskElement"><span>mask</span></a>’</span>, <span class="element-name">‘<a href="pservers.html#PatternElement"><span>pattern</span></a>’</span>, <span class="element-name">‘<a href="pservers.html#RadialGradientElement"><span>radialGradient</span></a>’</span> and
-<span class="element-name">‘<a href="struct.html#SymbolElement"><span>symbol</span></a>’</span>.</p>
-  
-<p class="issue">
-  Is there any justification for continuing to have this recommendation?
-  I could understand recommending that referenced content by defined earlier in the document than it is used, but putting things inside 'defs' is really only a matter of coding style.
+<p>It is recommended that, where possible, referenced elements be defined
+prior to the elements that use them, in document order.
+Collecting all referenced elements 
+inside of a single <span class="element-name">‘<a href="struct.html#DefsElement"><span>defs</span></a>’</span> element
+near the top of the file
+can make the markup easier to read and understand.
 </p>
 
 <h3 id="DefsElement" class="heading">4.4.2. The <span class="element-name">‘defs’</span> element<a class="self-link" href="#DefsElement"></a></h3>
@@ -874,6 +870,11 @@ directly.</p>
       and its <a href="struct.html#TermShadowHost">host</a> <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element.
     </p>
     <p>
+      Keyword values have the same meaning as for the 
+      <span class="attr-name">‘<a href="painting.html#MarkerElementRefXAttribute"><span>refX</span></a>’</span> and <span class="attr-name">‘<a href="painting.html#MarkerElementRefYAttribute"><span>refY</span></a>’</span> attributes on the <span class="element-name">‘<a href="painting.html#MarkerElement"><span>marker</span></a>’</span> element,
+      resolving to 0%, 50%, or 100% in the applicable direction.
+    </p>
+    <p>
       Unlike other positioning attributes,
       <span class="attr-name">‘<a href="struct.html#SymbolElementRefXAttribute"><span>refX</span></a>’</span> and <span class="attr-name">‘<a href="struct.html#SymbolElementRefYAttribute"><span>refY</span></a>’</span> 
       are interpreted as being in the coordinate system of the
@@ -1012,7 +1013,7 @@ the complete SVG document subtree rooted at that element is used.
 <p>
 The cloned content inherits styles from the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element
 and can be the target of user events.
-However, thes cloned <a href="struct.html#TermElementInstance">element instances</a> remain linked to the referenced source 
+However, these cloned <a href="struct.html#TermElementInstance">element instances</a> remain linked to the referenced source 
 and reflect DOM mutations in the original.
 In addition, all style rules that apply in the scope of the referenced element
 also apply in the scope of the cloned <a href="struct.html#TermShadowTree">shadow tree</a>.
@@ -1199,12 +1200,6 @@ or if the <a href="struct.html#TermReferencedElement">referenced element</a> is 
 then the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element returns to the <a href="struct.html#TermUnresolvedUseElement">unresolved</a> state.
 The user agent must once again attempt to resolve the URI to identify the referenced element.
 </p>
-  
-<p class="issue">
-  Should there be some sort of load event
-  that is dispatched after the use tree is successfully generated?
-  If so, which event in particular?
-</p>
 
 <h3 id="UseShadowTree" class="heading">4.8.3. The use-element shadow tree<a class="self-link" href="#UseShadowTree"></a></h3>
   
@@ -1306,20 +1301,12 @@ the user agent must create a
 <a href="struct.html#TermUseElementShadowTree">use-element shadow tree</a> whose host is the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element itself.
 The shadow tree must be created even if
 the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element is not rendered
-because it is a descendent of a <a href="render.html#TermNeverRenderedElement">never-rendered element</a>
+because it is a descendent of a <a href="render.html#TermNeverRenderedElement">never-rendered element</a>,
+because of conditional processing,
 or because of the <a class="property" href="render.html#VisibilityControl">display</a> property being set to <span class="prop-value">none</span>
 on it or an ancestor element.
-However, a <a href="struct.html#TermUseElementShadowTree">use-element shadow tree</a> must not be generated
-if the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element is excluded from the graphic
-because of <a href="struct.html#ConditionalProcessing">conditional processing</a>.
 </p>
-  <p class="issue">
-  Does this make sense?
-  Consistent with audio/video not playing with conditional processing,
-  and with the idea that it stops all processing (including fetching external resources), 
-  not only rendering.
-  SVG 1.1 only mentioned <code>display: none</code>. 
-  </p>
+  
 <p>
 Each node in the shadow tree is an <a href="struct.html#TermElementInstance">instance</a> of a corresponding node 
 from the <a href="struct.html#TermReferencedDocumentSubtree">referenced document subtree</a>.
@@ -1331,12 +1318,6 @@ and which itself is a direct child of the <a href="struct.html#TermShadowRoot">s
 The shadow tree is open (inspectable by script), but read-only.
 Any attempt to directly modify the elements, attributes, and other nodes in the shadow tree
 must throw a <code>NoModificationAllowedError</code>.
-</p>
-  
-<p class="issue">
-  Is this the best choice for the error type?
-  (Other options include ReadOnlyError and NotAllowedError.)
-  Needs to encompass both DOM modification attempts as well as attribute or property changes.
 </p>
   
 <p>
@@ -1770,12 +1751,8 @@ illustrative purposes.</p>
     
 <h3 id="UseAnimations" class="heading">4.8.7. Animations in use-element shadow trees<a class="self-link" href="#UseAnimations"></a></h3>
 <p class="issue">
-  Should this section be moved to the SVG Animations specification and/or WAAPI?
-  Most of the details are dependent on those specs.
-  However, implementers that currently support SVG animation elements
-  and Web Animations
-  are going to need guidance on how to update those implementations
-  to match the new shadow DOM model.
+  Update per Brian Birtles recommendations: https://github.com/w3c/svgwg/pull/206#issuecomment-234436749
+  
   Also, it would be nice to have a TR version of SVG Animations to link to!
 </p>
   
@@ -2648,7 +2625,11 @@ specifications. [<a href="refs.html#ref-ARIA">ARIA</a>] [<a href="refs.html#ref-
 
    <tbody>
     <tr><td><span class="element-name">‘<a href="linking.html#AElement"><span>a</span></a>’</span></td>
-        <td><code title="attr-aria-role-link">link</code> role</td>
+        <td><code title="attr-aria-role-link">link</code> role
+    if the element has a valid <code>href</code> or <code>xlink:href</code> attribute. 
+    For <code>a</code> elements that are not links, the default semantics are the same as 
+    <code>tspan</code> if the <code>a</code> element is a descendent of <code>text</code>,
+    or the same as <code>g</code> otherwise.</td>
         <td>no restrictions</td>
     </tr>
     <tr>
@@ -3611,27 +3592,21 @@ interface <b>SVGElementInstance</b> {
   [SameObject] readonly attribute <a class="idlinterface" href="types.html#InterfaceSVGElement">SVGElement</a>? <a href="#__svg__SVGElementInstance__correspondingElement">correspondingElement</a>;
   [SameObject] readonly attribute <a class="idlinterface" href="struct.html#InterfaceSVGUseElement">SVGUseElement</a>? <a href="#__svg__SVGElementInstance__correspondingUseElement">correspondingUseElement</a>;
 };</pre>
-  
-<p class="issue">
-  Is it appropriate to define this as a [NoInterfaceObject] interface?
-  As defined in this spec, the interface is only used to supplement SVGElement.
-  But SVG 1.1 scripts could be explicitly testing for the presence of Window.SVGElementInstance
-  to determine if the browser supports an inspectable use-element shadow DOM.
-</p>
 
 <p>The <b id="__svg__SVGElementInstance__correspondingElement">correspondingElement</b> IDL attribute
 points to the <a href="struct.html#TermCorrespondingElement">corresponding element</a> if this element is an <a href="struct.html#TermElementInstance">element instance</a> in a <a href="struct.html#TermUseElementShadowTree">use-element shadow tree</a>,
 or is null otherwise.</p>
   
 <p class="issue">
-  Should this still point to a valid element object
-  even if it is in a different document?
-  That implies that the entire DOM of the external file 
-  must be maintained in memory
-  (since the element linked from this property 
-  would be linked to all other nodes in its DOM tree).
-  I've already said that that external DOM is read-only,
-  so there's no real function to having it available.
+  When the <a href="struct.html#TermReferencedElement">referenced element</a> is in an external file,
+  the presence of this pointer
+  implies that the entire DOM of the external file 
+  must be maintained in memory.
+  However, as currently specified, the external DOM is read-only.
+  It therefore offers limited functionality and a potentially large performance impact.
+  Pending feedback from implementers,
+  authors should consider the use of <code>correspondingElement</code>
+  with external file references to be at-risk.
 </p>
 
 <p>The <b id="__svg__SVGElementInstance__correspondingUseElement">correspondingUseElement</b> IDL attribute
@@ -3687,5 +3662,5 @@ null is returned.</p>
 document is indeed an SVG document.  Instead, any document is returned.</p>
 </div>
 
-<script src="//www.w3.org/scripts/TR/2016/fixup.js"></script><div class="header bottom"><span class="namedate">SVG 2 – 13 July 2016</span> <a href="Overview.html">Top</a> ⋅ <a href="toc.html">Contents</a> ⋅ <a href="types.html">Previous</a> ⋅ <a href="styling.html">Next</a> ⋅ <a href="eltindex.html">Elements</a> ⋅ <a href="attindex.html">Attributes</a> ⋅ <a href="propidx.html">Properties</a></div><script src="style/expanders.js" type="text/javascript"></script></body>
+<script src="//www.w3.org/scripts/TR/2016/fixup.js"></script><div class="header bottom"><span class="namedate">SVG 2 – 25 July 2016</span> <a href="Overview.html">Top</a> ⋅ <a href="toc.html">Contents</a> ⋅ <a href="types.html">Previous</a> ⋅ <a href="styling.html">Next</a> ⋅ <a href="eltindex.html">Elements</a> ⋅ <a href="attindex.html">Attributes</a> ⋅ <a href="propidx.html">Properties</a></div><script src="style/expanders.js" type="text/javascript"></script></body>
 </html>
