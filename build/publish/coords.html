@@ -833,20 +833,37 @@ PreserveAspectRatio</a>.</p>
 <ul>
   <li>The <span class="element-name">‘<a href="struct.html#SVGElement"><span>svg</span></a>’</span> element</li>
 
-  <li>A <span class="element-name">‘<a href="struct.html#SymbolElement"><span>symbol</span></a>’</span> element define new
-  SVG viewports whenever they are instanced by a <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element.</li>
-
-  <li>An <span class="element-name">‘<a href="embedded.html#ImageElement"><span>image</span></a>’</span> element that
-  references an SVG file will result in the establishment of a
-  temporary new SVG viewport since the referenced resource by
-  definition will have an <span class="element-name">‘<a href="struct.html#SVGElement"><span>svg</span></a>’</span> element.</li>
-
-  <li>An <span class="element-name">‘<a href="embedded.html#HTMLElements"><span>iframe</span></a>’</span> element that references an SVG file establishes new SVG viewport like the situation of <span class="element-name">‘<a href="embedded.html#ImageElement"><span>image</span></a>’</span> element.</li>
-
-  <li>A <span class="element-name">‘<a href="embedded.html#ForeignObjectElement"><span>foreignObject</span></a>’</span> element
-  creates a new SVG viewport for rendering the content that is
-  within the element. (It also creates a new initial containing block.)</li>
+  <li>A <span class="element-name">‘<a href="struct.html#SymbolElement"><span>symbol</span></a>’</span> element 
+    that is instanced by a <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element.</li>
 </ul>
+  
+<p class="note">
+  For historical reasons,
+  the <span class="element-name">‘<a href="pservers.html#PatternElement"><span>pattern</span></a>’</span> and <span class="element-name">‘<a href="painting.html#MarkerElement"><span>marker</span></a>’</span> elements
+  do not create a new viewport,
+  despite accepting a <span class="attr-name">‘<a href="coords.html#ViewBoxAttribute"><span>viewBox</span></a>’</span> attribute.
+  Neither do the <span class="element-name">‘<a href="http://dev.w3.org/fxtf/css-masking-1/#ClipPathElement"><span>clipPath</span></a>’</span> or <span class="element-name">‘<a href="http://dev.w3.org/fxtf/css-masking-1/#MaskElement"><span>mask</span></a>’</span> elements.
+  Percentage lengths within the content of these elements
+  are not proportional to the dimensions of the graphical effect region.
+</p>
+  
+<p>
+  The <span class="element-name">‘<a href="embedded.html#ForeignObjectElement"><span>foreignObject</span></a>’</span> element establishes a new 
+  <a href="https://www.w3.org/TR/css-position-3/#def-cb">CSS containing block</a>
+  for its child content.
+  The same is true for a <span class="element-name">‘<a href="embedded.html#HTMLElements"><span>video</span></a>’</span>, <span class="element-name">‘<a href="embedded.html#HTMLElements"><span>audio</span></a>’</span>, or <span class="element-name">‘<a href="embedded.html#HTMLElements"><span>canvas</span></a>’</span> element
+  when its fallback content is being rendered.
+  This has some effects similar to a new viewport, 
+  resetting the scope of layout for child content.
+  However, in order to render SVG elements that are descendents of <span class="element-name">‘<a href="embedded.html#ForeignObjectElement"><span>foreignObject</span></a>’</span>,
+  a new <span class="element-name">‘<a href="struct.html#SVGElement"><span>svg</span></a>’</span> element must establish an SVG document fragment and SVG viewport.
+</p>  
+<p>
+  An <span class="element-name">‘<a href="embedded.html#ImageElement"><span>image</span></a>’</span> or <span class="element-name">‘<a href="embedded.html#HTMLElements"><span>iframe</span></a>’</span> element creates a new
+  <a href="https://www.w3.org/TR/css-position-3/#vp">document viewport</a>
+  for the referenced document. 
+  If the referenced document is a SVG file, it will of course establish its own SVG viewport.
+</p>
 
 <p>Whether a new SVG viewport also establishes a new additional
 clipping path is determined by the value of the <a class="property" href="render.html#OverflowAndClipProperties">overflow</a> property on the element
