@@ -22,7 +22,7 @@
   -->
   <!-- W3C style sheet will be added here during processing. -->
 <link rel="stylesheet" title="Default" href="style/svg.css" type="text/css" media="screen"/><link rel="alternate stylesheet" title="Only annotations for publication" href="style/default_no_maturity.css" type="text/css" media="screen"/><link rel="alternate stylesheet" title="No issues/annotations" href="style/default_no_issues.css" type="text/css" media="screen"/><link rel="stylesheet" href="//www.w3.org/StyleSheets/TR/2016/W3C-ED" type="text/css" media="screen"/><script src="style/link-fixup.js"></script></head>
-<body class="chapter-embedded"><div class="header top"><span class="namedate">SVG 2 – 26 July 2016</span> <a href="Overview.html">Top</a> ⋅ <a href="toc.html">Contents</a> ⋅ <a href="text.html">Previous</a> ⋅ <a href="painting.html">Next</a> ⋅ <a href="eltindex.html">Elements</a> ⋅ <a href="attindex.html">Attributes</a> ⋅ <a href="propidx.html">Properties</a></div>
+<body class="chapter-embedded"><div class="header top"><span class="namedate">SVG 2 – 27 July 2016</span> <a href="Overview.html">Top</a> ⋅ <a href="toc.html">Contents</a> ⋅ <a href="text.html">Previous</a> ⋅ <a href="painting.html">Next</a> ⋅ <a href="eltindex.html">Elements</a> ⋅ <a href="attindex.html">Attributes</a> ⋅ <a href="propidx.html">Properties</a></div>
 
 <h1>Chapter 11: Embedded Content</h1><nav id="toc"><h2 id="Contents" class="contents">Contents</h2><ol class="toc"><li><ol class="toc"><li><a href="embedded.html#Overview"><span class="secno">11.1.</span> Overview</a></li><li><a href="embedded.html#Placement"><span class="secno">11.2.</span> Placement of the referenced resource</a></li><li><a href="embedded.html#ImageElement"><span class="secno">11.3.</span> The <span class="element-name">‘image’</span> element</a></li><li><a href="embedded.html#HTMLElements"><span class="secno">11.4.</span> HTML5 elements in SVG subtrees</a></li><li><a href="embedded.html#ForeignNamespaces"><span class="secno">11.5.</span> Foreign namespaces and private data</a></li><li><a href="embedded.html#EmbeddingForeignObjects"><span class="secno">11.6.</span> Embedding foreign object types</a></li><li><a href="embedded.html#ForeignObjectElement"><span class="secno">11.7.</span> The <span class="element-name">‘foreignObject’</span> element</a></li><li><a href="embedded.html#DOMInterfaces"><span class="secno">11.8.</span> DOM interfaces</a><ol class="toc"><li><a href="embedded.html#InterfaceSVGImageElement"><span class="secno">11.8.1.</span> Interface SVGImageElement</a></li><li><a href="embedded.html#InterfaceSVGForeignObjectElement"><span class="secno">11.8.2.</span> Interface SVGForeignObjectElement</a></li></ol></li></ol></li></ol></nav>
 <div class="annotation svg2-requirement">
@@ -106,7 +106,11 @@ coordinate system. The <span class="element-name">‘<a href="embedded.html#Imag
 image files such as PNG or JPEG or to files with MIME type of
 "image/svg+xml". <a href="conform.html#ConformingSVGViewers">Conforming SVG
 viewers</a> need to support at least PNG, JPEG and SVG format
-files.</p>
+files.
+SVG files must be processed in <a href="https://svgwg.org/specs/integration/#secure-animated-mode">secure animated mode</a>
+if the current document supports animation,
+or in <a href="https://svgwg.org/specs/integration/#secure-static-mode">secure static mode</a> if the current document is static.
+</p>
 
 <p>The result of processing an <span class="element-name">‘<a href="embedded.html#ImageElement"><span>image</span></a>’</span> is always a four-channel
 RGBA result. When an <span class="element-name">‘<a href="embedded.html#ImageElement"><span>image</span></a>’</span>
@@ -272,9 +276,9 @@ elements within an SVG file.</p>
     identifying the image to render.
     Refer to the common handling defined for <a href="linking.html#linkRefAttrs">URL reference attributes</a> and
     <a href="linking.html#XLinkRefAttrs">deprecated XLink attributes</a>.</p>
-    <p>To get the referenced resource, do a potentially CORS-enabled fetch of the absolute URL that resulted from the earlier step, with the <em>mode</em> being the current state of the
-    element's <span class="attr-name">‘<a href="embedded.html#ImageElementCrossoriginAttribute"><span>crossorigin</span></a>’</span> attribute, the <em>origin</em> being the <a href="http://www.w3.org/TR/html51/browsers.html#cross-origin">origin</a> of the <span class="element-name">‘<a href="embedded.html#ImageElement"><span>image</span></a>’</span> element's <a class="idlinterface" href="https://www.w3.org/TR/2015/REC-dom-20151119/#interface-document">Document</a>, and the <em>default origin behaviour</em> set to <em>taint</em>.
-    For <a href="http://www.w3.org/TR/html51/browsers.html#cross-origin">origin</a>, the rules defined for the html <a href="http://www.w3.org/TR/html51/semantics-embedded-content.html#the-img-element">'img'</a> element apply the same way to the svg <span class="element-name">‘<a href="embedded.html#ImageElement"><span>image</span></a>’</span> element.
+    <p>
+        The URL is processed and the resource is fetched
+        <a href="linking.html#processingURL">as described in the Linking chapter</a>.
     </p>
   </dd>
 </dl>
@@ -293,6 +297,44 @@ elements within an SVG file.</p>
 &lt;/svg>
 </pre>
 </div>
+  
+<p>
+  Since image references always refer to a complete document,
+  a target-only URL is treated as a link to the same file,
+  which is rendered again as an independent embedded image.
+  Since the embedded image is processed in a secure mode,
+  its own embedded references are not processed,
+  preventing infinite recursion.
+</p>
+
+  <div class="example"><pre class="xml">&lt;?xml version="1.0" standalone="no"?>
+&lt;svg width="5cm" height="3cm" viewBox="0 0 50 30" 
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+  &lt;title>Recursive SVG&lt;/title>
+  &lt;desc>An SVG with two recursive image reference to itself.
+    One reference uses the file name as a relative URL, 
+    the other uses a target fragment only.
+    When viewed in a processing mode that supports external file references,
+    the embedded images should be rendered;
+    however, the embedded image must be processed in secure mode,
+    so the recursion only happens once.
+    The appearance should be three nested red circles in a bulls-eye pattern;
+    the innermost circle has solid fill because of target styles.
+  &lt;/desc>
+  &lt;style type="text/css">
+    #target:target {
+      fill: red;
+    }
+  &lt;/style>
+  &lt;circle id="target" 
+          stroke="red" stroke-width="5" fill="none"
+          cx="50%" cy="50%" r="12" />
+  &lt;image xlink:href="recursive-image.svg"
+         x="25%" y="25%" width="50%" height="50%" />
+  &lt;image xlink:href="#target"
+         x="45%" y="45%" width="10%" height="10%" />
+&lt;/svg></pre><div class="figure"><img alt="Example recursive-image — an SVG that embeds itself, creating a bulls-eye pattern" src="images/embedded/recursive-image.png"/><p class="caption">Example recursive-image</p></div><p class="view-as-svg"><a href="images/embedded/recursive-image.svg">View this example as SVG (SVG-enabled browsers only)</a></p></div>
 
 
 
@@ -600,5 +642,5 @@ presentation attributes, respectively.</p>
 
 </div>
 
-<script src="//www.w3.org/scripts/TR/2016/fixup.js"></script><div class="header bottom"><span class="namedate">SVG 2 – 26 July 2016</span> <a href="Overview.html">Top</a> ⋅ <a href="toc.html">Contents</a> ⋅ <a href="text.html">Previous</a> ⋅ <a href="painting.html">Next</a> ⋅ <a href="eltindex.html">Elements</a> ⋅ <a href="attindex.html">Attributes</a> ⋅ <a href="propidx.html">Properties</a></div><script src="style/expanders.js" type="text/javascript"></script></body>
+<script src="//www.w3.org/scripts/TR/2016/fixup.js"></script><div class="header bottom"><span class="namedate">SVG 2 – 27 July 2016</span> <a href="Overview.html">Top</a> ⋅ <a href="toc.html">Contents</a> ⋅ <a href="text.html">Previous</a> ⋅ <a href="painting.html">Next</a> ⋅ <a href="eltindex.html">Elements</a> ⋅ <a href="attindex.html">Attributes</a> ⋅ <a href="propidx.html">Properties</a></div><script src="style/expanders.js" type="text/javascript"></script></body>
 </html>

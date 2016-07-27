@@ -21,10 +21,11 @@
   -->
   <!-- W3C style sheet will be added here during processing. -->
 <link rel="stylesheet" title="Default" href="style/svg.css" type="text/css" media="screen"/><link rel="alternate stylesheet" title="Only annotations for publication" href="style/default_no_maturity.css" type="text/css" media="screen"/><link rel="alternate stylesheet" title="No issues/annotations" href="style/default_no_issues.css" type="text/css" media="screen"/><link rel="stylesheet" href="//www.w3.org/StyleSheets/TR/2016/W3C-ED" type="text/css" media="screen"/><script src="style/link-fixup.js"></script></head>
-<body class="chapter-linking"><div class="header top"><span class="namedate">SVG 2 – 26 July 2016</span> <a href="Overview.html">Top</a> ⋅ <a href="toc.html">Contents</a> ⋅ <a href="interact.html">Previous</a> ⋅ <a href="svgdom.html">Next</a> ⋅ <a href="eltindex.html">Elements</a> ⋅ <a href="attindex.html">Attributes</a> ⋅ <a href="propidx.html">Properties</a></div>
+<body class="chapter-linking"><div class="header top"><span class="namedate">SVG 2 – 27 July 2016</span> <a href="Overview.html">Top</a> ⋅ <a href="toc.html">Contents</a> ⋅ <a href="interact.html">Previous</a> ⋅ <a href="svgdom.html">Next</a> ⋅ <a href="eltindex.html">Elements</a> ⋅ <a href="attindex.html">Attributes</a> ⋅ <a href="propidx.html">Properties</a></div>
 
-<h1>Chapter 15: Linking</h1><nav id="toc"><h2 id="Contents" class="contents">Contents</h2><ol class="toc"><li><ol class="toc"><li><a href="linking.html#URLReference"><span class="secno">15.1.</span> References</a><ol class="toc"><li><a href="linking.html#HeadOverview"><span class="secno">15.1.1.</span> Overview</a></li><li><a href="linking.html#definitions"><span class="secno">15.1.2.</span> Definitions</a></li><li><a href="linking.html#URLandURI"><span class="secno">15.1.3.</span> URLs and URIs</a></li><li><a href="linking.html#URLforms"><span class="secno">15.1.4.</span> Syntactic forms: URL and &lt;url></a></li><li><a href="linking.html#processingURL"><span class="secno">15.1.5.</span> Processing of URL references</a></li><li><a href="linking.html#linkRefAttrs"><span class="secno">15.1.6.</span> URL reference attributes</a></li><li><a href="linking.html#XLinkRefAttrs"><span class="secno">15.1.7.</span> Deprecated XLink URL reference attributes</a></li></ol></li><li><a href="linking.html#Links"><span class="secno">15.2.</span> Links out of SVG content: the <span class="element-name">‘a’</span> element</a></li><li><a href="linking.html#LinksIntoSVG"><span class="secno">15.3.</span> Linking into SVG content: URL fragments and SVG views</a><ol class="toc"><li><a href="linking.html#SVGFragmentIdentifiers"><span class="secno">15.3.1.</span> SVG fragment identifiers</a></li><li><a href="linking.html#SVGFragmentIdentifiersDefinitions"><span class="secno">15.3.2.</span> SVG fragment identifiers definitions</a></li><li><a href="linking.html#ViewElement"><span class="secno">15.3.3.</span> Predefined views: the <span class="element-name">‘view’</span> element</a></li></ol></li><li><a href="linking.html#DOMInterfaces"><span class="secno">15.4.</span> DOM interfaces</a><ol class="toc"><li><a href="linking.html#InterfaceSVGAElement"><span class="secno">15.4.1.</span> Interface SVGAElement</a></li><li><a href="linking.html#InterfaceSVGViewElement"><span class="secno">15.4.2.</span> Interface SVGViewElement</a></li></ol></li></ol></li></ol></nav>
+<h1>Chapter 15: Linking</h1><nav id="toc"><h2 id="Contents" class="contents">Contents</h2><ol class="toc"><li><ol class="toc"><li><a href="linking.html#URLReference"><span class="secno">15.1.</span> References</a><ol class="toc"><li><a href="linking.html#HeadOverview"><span class="secno">15.1.1.</span> Overview</a></li><li><a href="linking.html#definitions"><span class="secno">15.1.2.</span> Definitions</a></li><li><a href="linking.html#URLandURI"><span class="secno">15.1.3.</span> URLs and URIs</a></li><li><a href="linking.html#URLforms"><span class="secno">15.1.4.</span> Syntactic forms: URL and &lt;url></a></li><li><a href="linking.html#linkRefAttrs"><span class="secno">15.1.5.</span> URL reference attributes</a></li><li><a href="linking.html#XLinkRefAttrs"><span class="secno">15.1.6.</span> Deprecated XLink URL reference attributes</a></li><li><a href="linking.html#processingURL"><span class="secno">15.1.7.</span> Processing of URL references</a><ol class="toc"><li><a href="linking.html#processingURL-absolute"><span class="secno">15.1.7.1.</span> Generating the absolute URL</a></li><li><a href="linking.html#processingURL-fetch"><span class="secno">15.1.7.2.</span> Fetching the document</a></li><li><a href="linking.html#processingURL-parsing"><span class="secno">15.1.7.3.</span> Processing the subresource document</a></li><li><a href="linking.html#processingURL-target"><span class="secno">15.1.7.4.</span> Identifying the target element</a></li><li><a href="linking.html#processingURL-validity"><span class="secno">15.1.7.5.</span> Valid URL targets</a></li></ol></li></ol></li><li><a href="linking.html#Links"><span class="secno">15.2.</span> Links out of SVG content: the <span class="element-name">‘a’</span> element</a></li><li><a href="linking.html#LinksIntoSVG"><span class="secno">15.3.</span> Linking into SVG content: URL fragments and SVG views</a><ol class="toc"><li><a href="linking.html#SVGFragmentIdentifiers"><span class="secno">15.3.1.</span> SVG fragment identifiers</a></li><li><a href="linking.html#SVGFragmentIdentifiersDefinitions"><span class="secno">15.3.2.</span> SVG fragment identifiers definitions</a></li><li><a href="linking.html#ViewElement"><span class="secno">15.3.3.</span> Predefined views: the <span class="element-name">‘view’</span> element</a></li></ol></li><li><a href="linking.html#DOMInterfaces"><span class="secno">15.4.</span> DOM interfaces</a><ol class="toc"><li><a href="linking.html#InterfaceSVGAElement"><span class="secno">15.4.1.</span> Interface SVGAElement</a></li><li><a href="linking.html#InterfaceSVGViewElement"><span class="secno">15.4.2.</span> Interface SVGViewElement</a></li></ol></li></ol></li></ol></nav>
 
+<div class="ready-for-WG-review">
 <h2 id="URLReference" class="heading">15.1. References<a class="self-link" href="#URLReference"></a></h2>
 <h3 id="HeadOverview" class="heading">15.1.1. Overview<a class="self-link" href="#HeadOverview"></a></h3>
 
@@ -79,28 +80,51 @@ on the scripting context when a <a>'script'</a> element's
   can include an &lt;absoluteURL> or
   &lt;relativeURL> and a identifier of the fragment in that resource. See <a href="struct.html#Head">References and the
   <span class="element-name">‘defs’</span> element</a>. URL reference with fragment identifiers are commonly used to reference <a href="pservers.html">paint servers</a>.</dd>
+  
+  <dt id="TermSameDocumentURL">same-document URL reference</dt>
+  <dd>A <a href="linking.html#TermURLReferenceWithFragmentIdentifier">URL reference with fragment identifier</a>
+    where the non-fragment part of the URL refers to the current document.
+  </dd>
 
   <dt id="TermCircularReference">circular reference</dt>
   <dd><a href="#TermURLReference">URL references</a> that directly or indirectly reference
-  themselves are treated as invalid circular references.</dd>
+  themselves are treated as invalid circular references.
+    What constitutes a circular reference will depend on how the referenced resource is used,
+    and may include a reference to an ancestor of the current element.
+  </dd> 
+  
+  <dt id="TermUnresolvedReference">unresolved reference</dt>
+  <dd>A reference that is still being processed,
+    and has not yet resulted in either an error or an identified resource.
+  </dd>
 
   <dt id="TermInvalidReference">invalid reference</dt>
   <dd>
-    <p>Either of the following:</p>
+    <p>Any of the following are invalid references:</p>
     <ul>
+      <li>A circular reference.</li>
       <li>
-        <a href="#TermURLReference">URL reference</a> to node that do not exist.
+        A <a href="#TermURLReference">URL reference</a> that results in an error
+        during <a href="#processingURL">processing</a>.
       </li>
       <li>
-        <a href="#TermURLReference">URL references</a> to elements which are
+        A <a href="#TermURLReference">URL reference</a> that cannot be resolved.
+      </li>
+      <li>
+        A <a href="#TermURLReference">URL references</a> to elements which are
         inappropriate targets for the given reference shall be treated as invalid
-        references (see <a href="linking.html#processingURL">Processing of URL references</a>
+        references 
+        (see <a href="#processingURL-validity">Valid URL targets</a>
         for appropriate targets).
         For example, the <a class="property" href="http://dev.w3.org/fxtf/css-masking-1/#the-clip-path">clip-path</a> property can only refer to
         <span class="element-name">‘<a href="http://dev.w3.org/fxtf/css-masking-1/#ClipPathElement"><span>clipPath</span></a>’</span> elements. The property setting
         <span class="attr-value">clip-path:url(#MyElement)</span> is an
         invalid reference if the referenced element is not a <span class="element-name">‘<a href="http://dev.w3.org/fxtf/css-masking-1/#ClipPathElement"><span>clipPath</span></a>’</span>.</li>
     </ul>
+    <p>Invalid references may or may not be an error
+      (see <a href="implnote.html#ErrorProcessing">Error processing</a>),
+      depending on whether the referencing property or attribute defines fallback behavior.
+    </p>
   </dd>
 </dl>
 
@@ -132,22 +156,30 @@ escaping procedure and to refer to <a href="linking.html#TermURLReference">URL</
 
 <h3 id="URLforms" class="heading">15.1.4. Syntactic forms: URL and &lt;url><a class="self-link" href="#URLforms"></a></h3>
 
-<p>In most cases, URLs are specified using an <a href="#linkRefAttrs"><span class="attr-name">‘href’</span></a> attribute.
-However, some attributes allow both URLs and text strings as content.
+<p>In SVG, most structural relationships between two elements
+are specified using a URL value in an <a href="#linkRefAttrs"><span class="attr-name">‘href’</span></a> attribute.
+However, many <a href="styling.html#TermPresentationAttribute">presentation attributes</a> allow both URLs and text strings as content.
 To disambiguate a text string from a relative URL, the <a href="http://www.w3.org/TR/css3-values/#url-value">&lt;url></a>
-production is used [<a href="refs.html#ref-CSS3VALUES">CSS3VALUES</a>].
+production is used for presentation attributes,
+and their corresponding CSS properties [<a href="refs.html#ref-CSS3VALUES">CSS3VALUES</a>].
 This is simply a URL delimited with a functional notation.
-This form is used in <a href="styling.html#PresentationAttributes">presentation
-attributes</a>.</p>
+</p>
 
 <p>SVG makes extensive use of <a href="linking.html#TermURLReference">URL</a> references, both absolute and relative,
-to other objects. For example, to <a href="painting.html#TermFill">fill</a> a rectangle with a linear
-gradient, you first define a <span class="element-name">‘<a href="pservers.html#LinearGradientElement"><span>linearGradient</span></a>’</span> element and give
-it an ID, as in:</p>
+to other objects. 
+For example, a <span class="element-name">‘<a href="pservers.html#LinearGradientElement"><span>linearGradient</span></a>’</span> element 
+may be based on another gradient element,
+so that only the differences between the two need to be specified,
+by referencing the source gradient with a URL in the <span class="attr-name">‘<a href="https://svgwg.org/specs/animations/#HrefAttribute"><span>href</span></a>’</span> attribute:
+</p>
 
-<div class="example"><pre class="xml">&lt;linearGradient id="MyGradient">...&lt;/linearGradient></pre></div>
+<div class="example"><pre class="xml">&lt;linearGradient id="SourceGradient">...&lt;/linearGradient>
+&lt;linearGradient id="MyGradient"
+                href="#SourceGradient">...&lt;/linearGradient></pre></div>
 
-<p>You then reference the linear gradient as the value of the
+<p>
+To fill a rectangle with that gradient,
+you use a URL reference to the linear gradient element as the value of the
 <a class="property" href="painting.html#FillProperty">fill</a> property for the rectangle, as in the following example:</p>
 
 <div class="example"><pre class="xml">&lt;rect fill="url(#MyGradient)"/></pre></div>
@@ -176,49 +208,7 @@ agents.)</p>
 
 -->
 
-<h3 id="processingURL" class="heading">15.1.5. Processing of URL references<a class="self-link" href="#processingURL"></a></h3>
-
-<p>The following list describes the elements and properties that allow URL
-references and the valid target types for those references:</p>
-
-<ul>
-  <li>the <span class="element-name">‘<a href="linking.html#AElement"><span>a</span></a>’</span> element can reference any local or non-local resource</li>
-  <li>the <span class="element-name">‘<a href="https://svgwg.org/specs/animations/#AnimateElement"><span>animate</span></a>’</span> element (see <a href="https://svgwg.org/specs/animations/#TargetElement">Identifying the target element for an animation</a> for reference rules)</li>
-  <li>the <span class="element-name">‘<a href="https://svgwg.org/specs/animations/#AnimateMotionElement"><span>animateMotion</span></a>’</span> element (see <a href="https://svgwg.org/specs/animations/#TargetElement">Identifying the target element for an animation</a> for reference rules)</li>
-  <li>the <span class="element-name">‘<a href="https://svgwg.org/specs/animations/#AnimateTransformElement"><span>animateTransform</span></a>’</span> element (see <a href="https://svgwg.org/specs/animations/#TargetElement">Identifying the target element for an animation</a> for reference rules)</li>
-  <!--
-  <li>the <a href="color.html#ColorProfileSrcProperty">'src'</a> descriptor on an @color-profile definition must reference an ICC profile resource</li>
-  -->
-  <li>the <span class="element-name">‘<a href="interact.html#CursorElement"><span>cursor</span></a>’</span> element must reference a resource that can provide an image for the cursor graphic</li>
-  <li>the <a class="property" href="interact.html#CursorProperty">cursor</a> property must reference a resource that can provide an image for the cursor graphic</li>
-  <li>the <a class="property" href="painting.html#FillProperty">fill</a> property (see <a href="painting.html#SpecifyingPaint">Specifying paint</a> for reference rules)</li>
-  <li>the <span class="element-name">‘<a href="embedded.html#ImageElement"><span>image</span></a>’</span> element must reference any local or non-local resource</li>
-  <li>the <span class="element-name">‘<a href="pservers.html#LinearGradientElement"><span>linearGradient</span></a>’</span> element must reference a <span class="element-name">‘<a href="pservers.html#LinearGradientElement"><span>linearGradient</span></a>’</span> or <span class="element-name">‘<a href="pservers.html#RadialGradientElement"><span>radialGradient</span></a>’</span> element</li>
-  <li>the <a class="property" href="painting.html#MarkerProperty">marker</a>, <a class="property" href="painting.html#MarkerStartProperty">marker-start</a>, <a class="property" href="painting.html#MarkerMidProperty">marker-mid</a> and <a class="property" href="painting.html#MarkerEndProperty">marker-end</a> properties must reference a <span class="element-name">‘<a href="painting.html#MarkerElement"><span>marker</span></a>’</span> element.</li>
-  <li>the <span class="element-name">‘<a href="pservers.html#PatternElement"><span>pattern</span></a>’</span> element must reference a <span class="element-name">‘<a href="pservers.html#PatternElement"><span>pattern</span></a>’</span> element</li>
-  <li>the <span class="element-name">‘<a href="pservers.html#RadialGradientElement"><span>radialGradient</span></a>’</span> element must reference a <span class="element-name">‘<a href="pservers.html#LinearGradientElement"><span>linearGradient</span></a>’</span> or <span class="element-name">‘<a href="pservers.html#RadialGradientElement"><span>radialGradient</span></a>’</span> element</li>
-  <li>the <span class="element-name">‘<a href="interact.html#ScriptElement"><span>script</span></a>’</span> element must reference an external resource that provides the script content</li>
-  <li>the <a class="property" href="painting.html#StrokeProperty">stroke</a> property (see <a href="painting.html#SpecifyingPaint">Specifying paint</a> for reference rules)</li>
-  <li>the <span class="element-name">‘<a href="text.html#TextPathElement"><span>textPath</span></a>’</span> element must reference a <span class="element-name">‘<a href="paths.html#PathElement"><span>path</span></a>’</span> element</li>
-  <li>the <span class="element-name">‘<a href="https://svgwg.org/specs/animations/#SetElement"><span>set</span></a>’</span> element (see <a href="https://svgwg.org/specs/animations/#TargetElement">Identifying the target element for an animation</a> for reference rules)</li>
-  <li>the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element can reference any local or non-local resource</li>
-</ul>
-
-<p>The following rules apply to the processing of invalid URL references:</p>
-
-<ul>
-  <li>An invalid local URL reference (i.e., an <a href="#TermInvalidReference">invalid references</a> to a node
-  within the current document) represents an error (see
-  <a href="implnote.html#ErrorProcessing">Error processing</a>), apart from the
-  <span class="attr-name">‘<a href="linking.html#AElementHrefAttribute"><span>href</span></a>’</span> attribute on the <span class="element-name">‘<a href="linking.html#AElement"><span>a</span></a>’</span> element and the properties
-  that allow for backup values in the case where the URL reference is invalid
-  (see <a class="property" href="painting.html#FillProperty">fill</a> and <a class="property" href="painting.html#StrokeProperty">stroke</a>).</li>
-
-  <li>An invalid circular URL reference represents an error (see
-  <a href="implnote.html#ErrorProcessing">Error processing</a>).</li>
-</ul>
-
-<h3 id="linkRefAttrs" class="heading">15.1.6. URL reference attributes<a class="self-link" href="#linkRefAttrs"></a></h3>
+<h3 id="linkRefAttrs" class="heading">15.1.5. URL reference attributes<a class="self-link" href="#linkRefAttrs"></a></h3>
 
 <p id="linkRefAttrsEmbed"><a href="linking.html#TermURLReference">URL references</a> are normally specified with an
 <span class="attr-name">‘href’</span> attribute.
@@ -231,21 +221,14 @@ attribute must be a URL.</p>
 a value is an <a href="linking.html#TermURLReference">URL reference</a>, this specification follows the lead
 of the <a href="http://www.ietf.org/rfc/rfc3986.txt">URL Specification</a>
 in this matter and imposes no such conformance testing
-requirement on SVG applications.</p>
+requirement on SVG authoring tools.
+An invalid URL does not make an SVG document non-conforming.
+SVG user agents are only required to process URLs when needed,
+as specified in <a href="#processingURL">Processing of URL references</a>.
+</p>
 
-<p>If the <a href="linking.html#TermURLReference">URL reference</a> is relative, its absolute version must be computed by the method described in
-<a href="http://www.w3.org/TR/xmlbase/">XML Base</a> before use [<a href="refs.html#ref-XML-BASE">XML-BASE</a>].</p>
 
-<p class="ready-for-wg-review">If the <a href="linking.html#TermURLReference">URL reference</a> is a fragment-only URL, it must be treated as
-a same-document URL as described in 
-<a href="https://drafts.csswg.org/css-values/#local-urls">CSS Values and Units</a>
-[<a href="refs.html#ref-CSS3VALUES">CSS3VALUES</a>].</p>
-
-<p>If the protocol, such as HTTP, does not support <a href="linking.html#TermURLReference">URLs</a> directly,
-the <a href="linking.html#TermURLReference">URL</a> is converted to a URI by the SVG implementation, as described
-in section 3.1 of the <a href="http://www.ietf.org/rfc/rfc3987.txt">URL specification</a> [<a href="refs.html#ref-RFC3987">RFC3987</a>].</p>
-
-<h3 id="XLinkRefAttrs" class="heading">15.1.7. Deprecated XLink URL reference attributes<a class="self-link" href="#XLinkRefAttrs"></a></h3>
+<h3 id="XLinkRefAttrs" class="heading">15.1.6. Deprecated XLink URL reference attributes<a class="self-link" href="#XLinkRefAttrs"></a></h3>
 
 <p>In previous versions of SVG, the <span class="attr-name">‘href’</span>
 attribute was specified in the XLink namespace [<a href="refs.html#ref-XLINK">XLINK</a>] namespace.
@@ -340,6 +323,365 @@ XLink attributes. For example:</p>
 &lt;/svg>
 </pre>
 
+
+<h3 id="processingURL" class="heading">15.1.7. Processing of URL references<a class="self-link" href="#processingURL"></a></h3>
+  
+<p>
+  URLs are processed to identify a resource at the time they are needed, as follows:
+</p>
+  
+<ul>
+  <li>For the <span class="attr-name">‘<a href="linking.html#AElementHrefAttribute"><span>href</span></a>’</span> attribute of the <span class="element-name">‘<a href="linking.html#AElement"><span>a</span></a>’</span> element, 
+    at the time the link is activated by the user.
+  </li>
+  <li>For all other <span class="attr-name">‘<a href="https://svgwg.org/specs/animations/#HrefAttribute"><span>href</span></a>’</span> attributes,
+    at the time the element is <a href="https://dom.spec.whatwg.org/#connected">connected</a> to a document,
+    or at the time when the attribute is set, whichever is later.
+  </li>
+  <li>For source URLs on embedded HTML media elements,
+    as required based on source selection rules 
+    <a href="https://www.w3.org/TR/html51/semantics-embedded-content.html#the-media-elements">in the HTML specification</a> [<a href="refs.html#ref-HTML">HTML</a>].
+  </li>
+  <li>For all presentation attributes and style properties,
+    at the time the property is required for rendering an element.
+  </li>
+</ul>
+  
+<p>
+  Legacy <span class="attr-name">‘<a href="linking.html#XLinkHrefAttribute"><span>xlink:href</span></a>’</span> attributes are processed 
+  at the time a corresponding <span class="attr-name">‘<a href="https://svgwg.org/specs/animations/#HrefAttribute"><span>href</span></a>’</span> attribute would be processed,
+  but only if no such <span class="attr-name">‘<a href="https://svgwg.org/specs/animations/#HrefAttribute"><span>href</span></a>’</span> attribute exists on the element.
+</p>
+
+<p>Processing a URL involves three steps: 
+  generating the absolute URL; 
+  fetching the document (if required);
+  identifying the target element (if required).
+</p>
+
+<p>
+  A URL reference is <a href="linking.html#TermUnresolvedReference">unresolved</a>
+  until processing either results in an <a href="linking.html#TermInvalidReference">invalid reference</a>
+  or in the identification of the target resource.
+  Unresolved references in the non-presentation attributes of
+  <a href="struct.html#TermStructurallyExternalElement">structurally external elements</a> prevent the <a href="interact.html#LoadEvent">load event</a>from firing.
+  User agents may place time limits on the resolution of references
+  that are not <a href="linking.html#TermSameDocumentURL">same-document URL references</a>,
+  after which the reference is treated as a network error
+  (and therefore as an <a href="linking.html#TermInvalidReference">invalid reference</a>).
+</p>
+  
+<p>
+  For <a href="linking.html#TermSameDocumentURL">same-document URL references</a> in a dynamic document,
+  modifications or animations of attributes or properties,
+  or removal of elements from the DOM,
+  may cause an URL reference to return to the <a href="linking.html#TermUnresolvedReference">unresolved</a> state.
+  The user agent must once again attempt to resolve the URI to identify the referenced resource.
+</p>
+  
+<h4 id="processingURL-absolute" class="heading">15.1.7.1. Generating the absolute URL<a class="self-link" href="#processingURL-absolute"></a></h4>
+  
+<p>If the <a href="linking.html#TermURLReference">URL reference</a> is relative, its absolute version must be computed before use.
+The absolute URL should be generated using one of the following methods:
+</p>
+<ul>
+  <li>
+    as described in <a href="https://drafts.csswg.org/css-values/#local-urls">CSS Values and Units</a> if the reference occurs in a CSS file or in a <a href="styling.html#TermPresentationAttribute">presentation attribute</a>
+[<a href="refs.html#ref-CSS3VALUES">CSS3VALUES</a>]
+  </li>
+  <li>
+    as described in <a href="http://www.w3.org/TR/xmlbase/">XML Base</a> [<a href="refs.html#ref-XML-BASE">XML-BASE</a>]
+    if the reference occurs in any other attribute in an XML document
+  </li>
+  <li>
+    as described in the <a href="https://www.w3.org/TR/html51/infrastructure.html#parsing-urls">HTML specification</a> 
+    if the reference occurs in a non-presentation attribute 
+    in an HTML document that is not an XML document [<a href="refs.html#ref-HTML">HTML</a>]
+  </li>
+</ul>
+  
+<p class="note">
+  The <a href="https://www.w3.org/TR/xmlbase/#syntax"><span class="attr-name">‘xml:base’</span></a> attribute 
+  will only have an effect in XML documents;
+  this includes SVG documents and XHTML documents but not HTML documents that are not XML.
+  In contrast, a <a class="html" href="http://www.w3.org/TR/html/document-metadata.html#the-base-element"><code>base</code></a> element 
+  affects relative URLs in any SVG or HTML document,
+  by altering the <a href="https://www.w3.org/TR/html51/infrastructure.html#document-base-url">document base URL</a>.
+</p>
+
+<p>If the protocol, such as HTTP, does not support <a href="linking.html#TermURLReference">URLs</a> directly,
+the <a href="linking.html#TermURLReference">URL</a> must be converted to a URI by the user agent, as described
+in section 3.1 of the <a href="http://www.ietf.org/rfc/rfc3987.txt">URL specification</a> [<a href="refs.html#ref-RFC3987">RFC3987</a>].</p>
+  
+<p>After generating the absolute URL:</p>
+<ul>
+  <li>
+    <p>
+      If the URL is being processed following the activation of a link,
+      the user agent must follow the <a href="https://www.w3.org/TR/html51/browsers.html#browsing-the-web">algorithm for navigating to a URL</a> 
+      described in the HTML specification [<a href="refs.html#ref-HTML">HTML</a>].
+      The outcome of this algorithm varies depending on the
+      <span class="attr-name">‘<a href="linking.html#AElementTargetAttribute"><span>target</span></a>’</span> browsing context and security restrictions between browsing contexts,
+      and on whether the link is to the same document as is currently contained in that browsing context
+      (in which case the fragment is navigated without reloading the document).
+      If the document that was navigated was an SVG document,
+      then adjust the target behavior as described in
+      <a href="#LinksIntoSVG">Linking into SVG content</a>.
+    </p>
+  </li>
+  <li>
+    <p>
+      If the URL being processed is only <a href="#processingURL-validity">valid</a> 
+      if it refers to a complete document file
+      (such as the <span class="attr-name">‘<a href="https://svgwg.org/specs/animations/#HrefAttribute"><span>href</span></a>’</span> attribute of
+      an <span class="element-name">‘<a href="embedded.html#ImageElement"><span>image</span></a>’</span> and <span class="element-name">‘<a href="interact.html#ScriptElement"><span>script</span></a>’</span> element),
+      continue as indicated in <a href="#processingURL-fetch">Fetching the document</a>
+      (regardless of whether the URL is to the same document or not).
+    </p>
+  </li>
+  <li>
+    <p>
+      In all other cases, the URL is for a resource to be used in this SVG document.
+      The user agent must parse the URL to separate out the target fragment from the rest of the URL,
+      and compare it with the document base URL.
+      If all parts other than the target fragment are equal,
+      this is a <a href="linking.html#TermSameDocumentURL">same-document URL reference</a>,
+      and processing the URL must continue
+      as indicated in <a href="#processingURL-target">Identifying the target element</a>
+      with the current document as the referenced document.
+    </p>
+  </li>
+  <li>
+    <p>
+      Otherwise, the URL references a separate document,
+      and the user agent must continue processing the URL
+      as indicated in <a href="#processingURL-fetch">Fetching the document</a>.
+    </p>
+  </li>
+</ul>
+  
+<p class="note">
+  As defined in <a href="https://drafts.csswg.org/css-values/#local-urls">CSS Values and Units</a>,
+  a fragment-only URL in a style property must be treated as 
+  a <a href="linking.html#TermSameDocumentURL">same-document URL reference</a>,
+  regardless of the file in which the property was declared.
+</p>
+  
+
+<h4 id="processingURL-fetch" class="heading">15.1.7.2. Fetching the document<a class="self-link" href="#processingURL-fetch"></a></h4>
+  
+<p>
+  SVG properties and attributes may reference other documents.
+  When processing such a URL, 
+  the user agent should fetch the referenced document
+  as described in this section,
+  except under the following conditions:
+</p>
+
+<ul>
+  <li>
+    <p>
+      If the URL reference is from 
+      the <span class="attr-name">href</span> attribute on <a href="https://svgwg.org/specs/animations/#TargetElement">SVG animation elements</a>,
+      only <a href="linking.html#TermSameDocumentURL">same-document URL</a> references are allowed.
+      A URL referring to a different document is invalid 
+      and the document must not be fetched.
+    </p>
+  </li>
+  <li>
+    <p>
+      If the document containing the reference uses a
+      <a href="https://svgwg.org/specs/integration/#processing-modes">secure</a> SVG processing mode,
+      external file resources are disallowed.
+      Unless the absolute URL uses the <a href="https://tools.ietf.org/html/rfc2397"><code>data</code></a> protocol,
+      the user agent must treat the reference as if there was a network error,
+      making this an <a href="linking.html#TermInvalidReference">invalid reference</a>.
+    </p>
+  </li>
+  <li>
+    <p>
+      If any other security restrictions 
+      on the browsing context or user agent prevent external file references,
+      then the user agent must treat the reference as if there was a network error.
+    </p>
+  </li>
+</ul>
+  
+<p>
+  When fetching external resources,
+  user agents must use a <a href="https://www.w3.org/TR/html51/infrastructure.html#creating-a-potential-cors-request">potentially CORS-enabled request</a>
+  as defined in HTML [<a href="refs.html#ref-HTML">HTML</a>]
+  with the <em>corsAttributeState</em> as follows:
+</p>
+<ul>
+  <li>
+    For an <span class="attr-name">‘<a href="https://svgwg.org/specs/animations/#HrefAttribute"><span>href</span></a>’</span> reference on an 
+    <span class="element-name">‘<a href="embedded.html#ImageElement"><span>image</span></a>’</span> element or
+    <span class="element-name">‘<a href="interact.html#ScriptElement"><span>script</span></a>’</span> element,
+    the CORS state specified by the <span class="attr-name">‘<a href="embedded.html#ImageElementCrossoriginAttribute"><span>crossorigin</span></a>’</span> attribute.
+  </li>
+  <li>
+    For a reference from a style property or presentation attribute,
+    the "anonymous" state.
+  </li>
+  <li>
+    For all other references,
+    the "no-cors" state.
+  </li>
+</ul><a class="html" href="http://www.w3.org/TR/html/document-metadata.html#the-base-element"><code>base</code></a>
+<p>
+  The request's <em>origin</em> is computed using the 
+  <a href="https://www.w3.org/TR/html51/browsers.html#section-origin">same rules as HTML</a>,
+  with an SVG <span class="element-name">‘<a href="interact.html#ScriptElement"><span>script</span></a>’</span> element treated like an HTML <code>script</code> element,
+  and an SVG <span class="element-name">‘<a href="embedded.html#ImageElement"><span>image</span></a>’</span> element treated like an HTML <code>img</code> element.
+  The <em>default origin behaviour</em> must be set to <em>taint</em>.
+</p>
+  
+<p class="note">
+  A future SVG specification may enable CORS references
+  on other SVG elements with <span class="attr-name">‘<a href="https://svgwg.org/specs/animations/#HrefAttribute"><span>href</span></a>’</span> attributes.
+</p>
+  
+<p>
+  If the fetching algorithm results in an error or an empty response body,
+  the reference URL is treated as an <a href="linking.html#TermInvalidReference">invalid reference</a>.
+</p>
+<p>
+  If a valid response is returned,
+  and the <a href="#processingURL-validity">valid URL targets</a> for the reference
+  include specific element types,
+  the user agent must continue by
+  <a href="#processingURL-parsing">Processing the subresource document</a>.
+  Otherwise (if only entire-document the URL references are valid),
+  then the fetched document is the referenced resource.
+</p>
+
+<h4 id="processingURL-parsing" class="heading">15.1.7.3. Processing the subresource document<a class="self-link" href="#processingURL-parsing"></a></h4>
+  
+<p>
+  Otherwise, the subresource must be parsed to identify the target element.
+  If the fetched document is a type that the user agent can parse
+  to create a document object model,
+  it must process it in <a href="https://svgwg.org/specs/integration/#secure-static-mode">secure static mode</a> 
+  (meaning, do not fetch any additional external resources 
+  and do not run scripts or play animations or video).
+  The document model generated for an external subresource reference
+  must be immutable (read-only) and cannot be modified.
+</p>
+  
+<p>
+  If a document object model can be generated from the fetched file,
+  processing the URL must continue
+  as indicated in <a href="#processingURL-target">Identifying the target element</a>
+  with the parsed subresource document as the referenced document.
+  The user agent may commence the target-identification process
+  prior to completely parsing the document.
+</p>
+
+<p>
+  User agents may maintain a list of external resource URLs
+  and their associated parsed documents,
+  and may re-use the documents for subsequent references,
+  so long as doing so does not violate the processing mode,
+  caching, and CORS requirements on the resource.
+</p>
+
+<h4 id="processingURL-target" class="heading">15.1.7.4. Identifying the target element<a class="self-link" href="#processingURL-target"></a></h4>
+  
+<p>
+  For URL references to a specific element,
+  whether the reference is valid depends on whether 
+   the element can be located within the referenced document
+  and whether it is of an allowed type.
+</p>
+  
+<p>
+  Using the referenced document identified in previous processing steps
+  (either an external subresource document or the current document),
+  the target element is identified as follows:
+</p>
+<ul>
+  <li>
+    <p>
+      If the URL does not specify a specific element in a target fragment,
+      the target element is the root element of the referenced document.
+    </p>
+  </li>
+  <li>
+    <p>
+      Otherwise, the URL targets a specific element.
+      If a matching element currently exists in the referenced document,
+      then it is the target element.
+    </p>
+  </li>
+  <li>
+    <p>
+      Otherwise, there is no currently matching element.
+      If the referenced document is immutable,
+      then the URL reference is <a href="types.html#TermInvalidValue">invalid</a>.
+      An external subresource document is always immutable once fully parsed;
+      the current document is also immutable once parsed
+      if it is being processed in any mode other than
+      <a href="https://svgwg.org/specs/integration/#dynamic-interactive-mode">dynamic interactive mode</a>.
+    </p>
+  </li>
+  <li>
+    <p>
+      Otherwise, observe mutations to the referenced document 
+      until the URL can be successfully resolved
+      to define a target element,
+      or until the document becomes immutable 
+      (e.g., a non-dynamic document finishes parsing).
+    </p>
+  </li>
+</ul>
+  
+<p>The target element provides the referenced resource
+  if (and only if) it is a <a href="#processingURL-validity">valid URL target</a> for the reference.
+</p>
+  
+<h4 id="processingURL-validity" class="heading">15.1.7.5. Valid URL targets<a class="self-link" href="#processingURL-validity"></a></h4>
+  
+<p>The valid target element types for <span class="attr-name">‘<a href="https://svgwg.org/specs/animations/#HrefAttribute"><span>href</span></a>’</span> (or <span class="attr-name">‘<a href="linking.html#XLinkHrefAttribute"><span>xlink:href</span></a>’</span>) attributes are based on the element that has the attribute, as follows:</p>
+  
+<ul>
+  <li>the <span class="element-name">‘<a href="linking.html#AElement"><span>a</span></a>’</span> element can reference any local or non-local resource</li>
+  <li>the <span class="element-name">‘<a href="https://svgwg.org/specs/animations/#AnimateElement"><span>animate</span></a>’</span> element (see <a href="https://svgwg.org/specs/animations/#TargetElement">Identifying the target element for an animation</a> for reference rules)</li>
+  <li>the <span class="element-name">‘<a href="https://svgwg.org/specs/animations/#AnimateMotionElement"><span>animateMotion</span></a>’</span> element (see <a href="https://svgwg.org/specs/animations/#TargetElement">Identifying the target element for an animation</a> for reference rules)</li>
+  <li>the <span class="element-name">‘<a href="https://svgwg.org/specs/animations/#AnimateTransformElement"><span>animateTransform</span></a>’</span> element (see <a href="https://svgwg.org/specs/animations/#TargetElement">Identifying the target element for an animation</a> for reference rules)</li>
+  <li>the <span class="element-name">‘<a href="interact.html#CursorElement"><span>cursor</span></a>’</span> element must reference a document that can be processed as an image</li>
+  <li>the <span class="element-name">‘<a href="pservers.html#HatchElement"><span>hatch</span></a>’</span> element must reference another <span class="element-name">‘<a href="pservers.html#HatchElement"><span>hatch</span></a>’</span> element</li>
+  <li>the <span class="element-name">‘<a href="embedded.html#ImageElement"><span>image</span></a>’</span> element must reference a document that can be processed as an image</li>
+  <li>the <span class="element-name">‘<a href="pservers.html#LinearGradientElement"><span>linearGradient</span></a>’</span> element must reference a different <span class="element-name">‘<a href="pservers.html#LinearGradientElement"><span>linearGradient</span></a>’</span> or <span class="element-name">‘<a href="pservers.html#RadialGradientElement"><span>radialGradient</span></a>’</span> element</li>
+  <li>the <span class="element-name">‘<a href="pservers.html#PatternElement"><span>pattern</span></a>’</span> element must reference another <span class="element-name">‘<a href="pservers.html#PatternElement"><span>pattern</span></a>’</span> element</li>
+  <li>the <span class="element-name">‘<a href="interact.html#ScriptElement"><span>script</span></a>’</span> element must reference an external document that provides the script content</li>
+  <li>the <span class="element-name">‘<a href="pservers.html#RadialGradientElement"><span>radialGradient</span></a>’</span> element must reference a <span class="element-name">‘<a href="pservers.html#LinearGradientElement"><span>linearGradient</span></a>’</span> or another <span class="element-name">‘<a href="pservers.html#RadialGradientElement"><span>radialGradient</span></a>’</span> element</li>
+  <li>the <span class="element-name">‘<a href="text.html#TextPathElement"><span>textPath</span></a>’</span> element must reference an element type
+    that implements the <a class="idlinterface" href="types.html#InterfaceSVGGeometryElement">SVGGeometryElement</a> interface</li>
+  <li>the <span class="element-name">‘<a href="https://svgwg.org/specs/animations/#SetElement"><span>set</span></a>’</span> element (see <a href="https://svgwg.org/specs/animations/#TargetElement">Identifying the target element for an animation</a> for reference rules)</li>
+  <li>the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element must reference either an SVG-namespaced element 
+    or an HTML-namespaced element 
+  <a href="embedded.html#HTMLElements">that may be included as a child of an SVG container element</a></li>
+</ul>
+  
+<p>The valid target element types for style properties defined in this specification are as follows: </p>
+
+<ul>
+  <!--
+  <li>the <a href="color.html#ColorProfileSrcProperty">'src'</a> descriptor on an @color-profile definition must reference an ICC profile resource</li>
+  -->
+  <li>the <a class="property" href="interact.html#CursorProperty">cursor</a> property must reference a resource that can provide an image for the cursor graphic</li>
+  <li>the <a class="property" href="painting.html#FillProperty">fill</a> property (see <a href="painting.html#SpecifyingPaint">Specifying paint</a> for reference rules)</li>
+  <li>the <a class="property" href="painting.html#MarkerProperty">marker</a>, <a class="property" href="painting.html#MarkerStartProperty">marker-start</a>, <a class="property" href="painting.html#MarkerMidProperty">marker-mid</a> and <a class="property" href="painting.html#MarkerEndProperty">marker-end</a> properties must reference a <span class="element-name">‘<a href="painting.html#MarkerElement"><span>marker</span></a>’</span> element.</li>
+  <li>the <a class="property" href="painting.html#StrokeProperty">stroke</a> property (see <a href="painting.html#SpecifyingPaint">Specifying paint</a> for reference rules)</li>
+</ul>
+
+<p>If the resolved target element type (or document type) is not allowed for the URL reference,
+  it is an <a href="linking.html#TermInvalidReference">invalid reference</a>.
+</p>
+  
+</div>
+  
 <h2 id="Links" class="heading">15.2. Links out of SVG content: the <span class="element-name">‘a’</span> element<a class="self-link" href="#Links"></a></h2>
 
 
@@ -822,5 +1164,5 @@ as follows:</p>
 
 </div>
 
-<script src="//www.w3.org/scripts/TR/2016/fixup.js"></script><div class="header bottom"><span class="namedate">SVG 2 – 26 July 2016</span> <a href="Overview.html">Top</a> ⋅ <a href="toc.html">Contents</a> ⋅ <a href="interact.html">Previous</a> ⋅ <a href="svgdom.html">Next</a> ⋅ <a href="eltindex.html">Elements</a> ⋅ <a href="attindex.html">Attributes</a> ⋅ <a href="propidx.html">Properties</a></div><script src="style/expanders.js" type="text/javascript"></script></body>
+<script src="//www.w3.org/scripts/TR/2016/fixup.js"></script><div class="header bottom"><span class="namedate">SVG 2 – 27 July 2016</span> <a href="Overview.html">Top</a> ⋅ <a href="toc.html">Contents</a> ⋅ <a href="interact.html">Previous</a> ⋅ <a href="svgdom.html">Next</a> ⋅ <a href="eltindex.html">Elements</a> ⋅ <a href="attindex.html">Attributes</a> ⋅ <a href="propidx.html">Properties</a></div><script src="style/expanders.js" type="text/javascript"></script></body>
 </html>
