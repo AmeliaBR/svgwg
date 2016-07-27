@@ -1075,7 +1075,7 @@ The target element that results from URL processing is the <a href="struct.html#
   is neither an SVG element 
   nor an HTML-namespaced element 
   <a href="embedded.html#HTMLElements">that may be included as a child of an SVG container element</a>, 
-  then reference is <a href="types.html#TermInvalidValue">invalid</a> and the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element is in error.
+  then the reference is <a href="types.html#TermInvalidValue">invalid</a> and the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element is in error.
 </p>
 <p>
   If the referenced element is a (shadow-including) ancestor
@@ -1116,7 +1116,9 @@ element instances as children of the <span class="element-name">‘<a href="stru
 </p>
   
 <p>User agents that support scripting and the document object model
-must implement the <a href="struct.html#TermUseElementShadowTree">use-element shadow tree</a> as described in this section.
+must implement the <a href="struct.html#TermUseElementShadowTree">use-element shadow tree</a> as described in this section
+and in conformance with the <a href="https://www.w3.org/TR/shadow-dom/">Shadow DOM</a> specification <a href="refs.html#ref-SHADOWDOM">[SHADOWDOM]</a>,
+or its future replacement.
 In contrast, user agents that do <em>not</em> support 
 the dynamic interactive processing mode 
 may not need to implement all the details of the shadow DOM. 
@@ -1139,7 +1141,8 @@ are rendered in the same way as if the shadow DOM was implemented.
   <dd>The referenced element, and all of its descendent nodes.</dd>
   
   <dt id="TermShadowRoot">shadow root</dt>
-  <dd>A type of <a class="idlinterface" href="https://www.w3.org/TR/2015/REC-dom-20151119/#interface-documentfragment">DocumentFragment</a> node which is associated with a host <a class="idlinterface" href="http://www.w3.org/TR/2014/WD-dom-20140204/#element">Element</a>,
+  <dd>A <a class="idlinterface" href="https://www.w3.org/TR/shadow-dom/#the-shadowroot-interface">ShadowRoot</a> object,
+  a type of <a class="idlinterface" href="https://www.w3.org/TR/2015/REC-dom-20151119/#interface-documentfragment">DocumentFragment</a> node which is associated with a host <a class="idlinterface" href="http://www.w3.org/TR/2014/WD-dom-20140204/#element">Element</a>,
   and which contains the content that will be used to render that host.
   A shadow root should be implemented in conformance with the <a href="https://www.w3.org/TR/shadow-dom/">Shadow DOM</a> specification <a href="refs.html#ref-SHADOWDOM">[SHADOWDOM]</a>,
   or its future replacement.
@@ -1147,10 +1150,14 @@ are rendered in the same way as if the shadow DOM was implemented.
   
   <dt id="TermShadowHost">shadow host</dt>
   <dt>host</dt>
-  <dd>An element that has an associated shadow root.</dd>
+  <dd>An element that has an associated shadow root; 
+    usage is consistent the definition of <a href="https://dom.spec.whatwg.org/#concept-documentfragment-host">host</a> in the DOM standard.
+  </dd>
   
   <dt id="TermShadowTree">shadow tree</dt>
-  <dd>A node tree whose root is a shadow root.</dd>
+  <dd>A node tree whose root is a shadow root; 
+    usage is consistent the definition of <a href="https://dom.spec.whatwg.org/#shadow-trees">shadow tree</a> in the DOM standard.
+  </dd>
   
   <dt id="TermUseElementShadowTree">use-element shadow tree</dt>
   <dd>A shadow tree whose host is a <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element, 
@@ -1183,13 +1190,6 @@ are rendered in the same way as if the shadow DOM was implemented.
     as part of the shadow tree of another <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element.
   </dd>
 </dl>
-
-  <!--
-<p>The <dfn id="TermGraphicalContents">graphical contents</dfn>
-are any <a>'svg'</a>, <a>'symbol'</a>, <a>'g'</a>, <a>graphics element</a> or
-other <a>'use'</a> elements, that a <a>'use'</a> element references.
-</p>
--->
     
 <p>When the user agent successfully resolves a <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element 
 to identify a <a href="struct.html#TermReferencedElement">referenced element</a>,
@@ -1255,91 +1255,6 @@ If either the <span class="element-name">‘<a href="struct.html#UseElement"><sp
 in a way that causes the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element's URL reference to become <a href="linking.html#TermUnresolvedReference">unresolved</a> again,
 then the entire shadow tree for that use element is discarded.
 </p>
-
-  <!--
-<p>A <a>'use'</a> element has the
-same visual effect as if the <a>'use'</a> element were replaced by the
-following generated content:</p>
-
-<p class="issue" data-issue="36">Except that the replaced content shouldn't affect
-how styles are matched.</p>
-
-<p>
-  In the generated content, the <a>'use'</a> will be replaced
-  by <a>'g'</a>, where all attributes from the <a>'use'</a> element
-  except for <a>'x'</a>, <a>'y'</a>, <a>'width'</a>,
-  <a>'height'</a>, <a>'use/href'</a> and the deprecated <a>'xlink:href'</a>
-  are transferred to the generated <a>'g'</a> element. An additional transformation
-  <span class="attr-value">translate(x,y)</span> is appended to the
-  end (i.e., right-side) of the <a>'transform'</a> property on the
-  generated <a>'g'</a>, where <span class="attr-value">x</span>
-  and <span class="attr-value">y</span> represent the values of
-  the <a>'x'</a> and <a>'y'</a> attributes on the <a>'use'</a>
-  element.
-</p>
-
-<ul>
-  <li>
-    <p>
-      <strong>If the <a>'use'</a> element references a <a>'symbol'</a> element</strong>:
-    </p>
-    <p>
-      The referenced <a>'symbol'</a> and its contents are deep-cloned
-      into the generated tree, with the exception that the
-      <a>'symbol'</a> is replaced by an <a>'svg'</a>. This
-      generated <a>'svg'</a> will always have explicit values for its
-      <a>'width'</a> and <a>'height'</a> presentation attributes. If
-      attributes <a>'width'</a> and/or <a>'height'</a> are
-      provided on the <a>'use'</a> element, then these attributes will
-      be transferred to the generated <a>'svg'</a>. If
-      attributes <a>'width'</a> and/or <a>'height'</a> are not
-      specified, the generated <a>'svg'</a> element will use values
-      of <span class='attr-value'>'100%'</span> for these attributes.
-    </p>
-  </li>
-  <li>
-    <p>
-      <strong>If the <a>'use'</a> element references an <a>'svg'</a> element:</strong>
-    </p>
-    <p>
-      The referenced <a>'svg'</a> and its contents are deep-cloned
-      into the generated tree. If attributes <a>'width'</a>
-      and/or <a>'height'</a> are provided on the <a>'use'</a>
-      element, then these values will override the corresponding
-      attributes on the <a>'svg'</a> in the generated tree.
-    </p>
-  </li>
-  <li>
-    <p>
-      <strong>Otherwise:</strong>
-    </p>
-    <p>
-      The referenced object and its contents are deep-cloned into the
-      generated tree.
-    </p>
-  </li>
-</ul>
--->
-<!--
-<div class="ready-for-wider-review">
-<p>
-The element referenced by <a>'use'</a> may be in a separate document. However,
-this specification does not define how or if the user agent will process
-stylesheets in that document, or what SVG viewport will be used for
-resolving percentages and media queries in such documents, if animations run
-in the separate document and which document controls the animation timeline. Script elements in the
-resource document must not be executed, and the corresponding conceptually cloned script elements
-must also not execute.
-</p>
-<p class="note">
-When re-using external assets, therefore, authors are advised not to include any scripts in the external
-file and to use inline styles or presentation attributes only. Percentage
-lengths should only be used if the re-used assets define their own SVG viewport
-(i.e., if the re-used element is an <a>'svg'</a> or <a>'symbol'</a>). 
-Declarative animations in external assets should not be used.
-</p>
-</div>
--->
 
 <p>When a <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> references
 another element which is another <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> or whose content contains a
@@ -1515,6 +1430,75 @@ or from their effect in CSS box layout.
     This represents a change 
     from how style cloning was defined in previous versions of SVG.
   </p>
+  
+  <p>
+    The following example demonstrates both the consistent and changed style-matching rules.
+    The circle on the left is re-used to draw the circle on the right.
+    The original circle has styles set in various ways:
+  </p>
+  <ul>
+    <li><a class="property" href="painting.html#StrokeWidthProperty">stroke-width</a> (20) is set in a presentation attribute on the circle itself.</li>
+    <li><a class="property" href="painting.html#StrokeOpacityProperty">stroke-opacity</a> (0.7) is set via a CSS rule with a simple selector matching the circle tag name.</li>
+    <li><a class="property" href="painting.html#StrokeProperty">stroke</a> color (green) is set using a complex CSS selector, matching the circle as a descendent of an element with class <code>special</code>.</li>
+    <li><a class="property" href="painting.html#FillProperty">fill</a> color is not set directly on the circle, so is inherited from the style set on the containing <span class="element-name">‘<a href="struct.html#GElement"><span>g</span></a>’</span> element (blue).</li>
+  </ul>
+  <p>
+    In the SVG 1.1 style-cloning model,
+    the <a href="https://www.w3.org/TR/css-cascade-3/#specified">specified style values</a>
+    would be cloned from the original element to the element instance.
+    The re-used circle would have the same styles as the original,
+    except that the <a class="property" href="painting.html#FillProperty">fill</a> value would be inherited from the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> (orange)
+    instead of from the <span class="element-name">‘<a href="struct.html#GElement"><span>g</span></a>’</span> (blue).
+  </p>
+  <p>
+    In the shadow DOM model required by SVG 2,
+    the styles for the re-used circle are calculated as follows:
+  </p>
+  <ul>
+    <li>the <a class="property" href="painting.html#StrokeWidthProperty">stroke-width</a> (20) presentation attribute is cloned to the element instance.</li>
+    <li>the CSS rule setting <a class="property" href="painting.html#StrokeOpacityProperty">stroke-opacity</a> (0.7) is part of the CSS stylesheet cloned into the shadow tree; it matches the circle tag name of the <a href="struct.html#TermElementInstance">element instance</a>, so is applied.</li>
+    <li>the CSS rule with the complex selector is also part of the cloned stylesheet, but it does not match the <a href="struct.html#TermElementInstance">element instance</a> of the circle, which is not a descendent of an element with class <code>special</code>; instead, <a class="property" href="painting.html#StrokeProperty">stroke</a> color on the circle is inherited from the host <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element (purple).</li>
+    <li><a class="property" href="painting.html#FillProperty">fill</a> color is still not set directly, so is once again inherited from the host <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element.</li>
+  </ul>
+  <p>
+    The re-used circle therefore differs from the original in both fill color (because it inherits from a different element) and stroke color (because the complex selector no longer matches).
+  </p>
+  
+  <div class="example"><pre class="xml">&lt;svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="200" height="100" viewBox="0 0 200 100">
+  &lt;title>Style inheritance and the use element&lt;/title>
+  &lt;desc>
+    Two circles, one of which is a re-styled clone of the other.
+    This file demonstrates one of the cases where 
+    the shadow-DOM style matching rules in SVG 2
+    have a different effect than the SVG 1.1 style cloning rules. 
+    The original circle on the left
+    should have blue fill 
+    and green stroke.
+    In a conforming SVG 1.1 user agent,
+    the re-used circle on the right
+    should have orange fill and green stroke.
+    In a conforming SVG 2 user agent,
+    the re-used circle should have orange fill and purple stroke.
+    In all cases,
+    the stroke should be partially transparent
+    and 20 units wide, 
+    relative to a total circle diameter of 100 units.
+  &lt;/desc>
+  &lt;style type="text/css">
+    circle          { stroke-opacity: 0.7; }
+    .special circle { stroke: green; }
+    use             { stroke: purple;
+                      fill: orange; }
+  &lt;/style>
+  &lt;g class="special" style="fill: blue">
+     &lt;circle id="c" cy="50" cx="50" r="40" 
+             stroke-width="20" />
+  &lt;/g>
+  &lt;use xlink:href="#c" x="100" />
+&lt;/svg></pre><div class="figure"><img alt="Example Use-changed-styles — A 'use' element copying a 'circle', with various style matching rules demonstrated" src="images/struct/Use-changed-styles.png"/><p class="caption">Example Use-changed-styles</p></div><p class="view-as-svg"><a href="images/struct/Use-changed-styles.svg">View this example as SVG (SVG-enabled browsers only)</a></p></div>
+  
   <p>
     Previous versions of SVG
     were not clear about how dynamic pseudo-classes 
@@ -1526,96 +1510,60 @@ or from their effect in CSS box layout.
     depending on which element the user is interacting with.
   </p>
 </div>
-    
-  <!--
-<p>The conceptual deep cloning of the referenced element into a
-non-exposed DOM tree also copies any property values resulting
-from <a href="http://www.w3.org/TR/2011/REC-CSS2-20110607/cascade.html">the CSS cascade</a>
-([<a href="refs.html#ref-CSS21">CSS21</a>], chapter 6)
-on the referenced element and its contents. CSS2 selectors can
-be applied to the original (i.e., referenced) elements because
-they are part of the formal document structure. CSS2 selectors
-cannot be applied to the (conceptually) cloned DOM tree because
-its contents are not part of the formal document structure.</p>
-
-<p>Property inheritance, however, works as if the referenced
-element had been textually included as a deeply cloned child of
-the <a>'use'</a> element. The
-referenced element inherits properties from the <a>'use'</a> element and the <a>'use'</a> element's ancestors. An
-instance of a referenced element does not inherit properties
-from the referenced element's original parents.</p>
--->
-<div class="note">
-  <p>Note that specifying <span class="prop-value">'visibility:hidden'</span> on a <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element does not guarantee
-  that the referenced content will not be rendered. If the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element specifies <span class="prop-value">'visibility:hidden'</span> and the element
-  it references specifies <span class="prop-value">'visibility:hidden'</span> or <span class="prop-value">'visibility:inherit'</span>, then that one
-  element will be hidden. However, if the referenced element
-  instead specifies <span class="prop-value">'visibility:visible'</span>, then that
+  
+<div class="example">
+  <p>
+  Specifying <span class="prop-value">'visibility:hidden'</span> on a <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element does not guarantee
+  that the referenced content will not be rendered. 
+  Unlike the <a class="property" href="render.html#VisibilityControl">display</a> or the <a class="property" href="render.html#ObjectAndGroupOpacityProperties">opacity</a> properties,
+  the <a class="property" href="render.html#VisibilityControl">visibility</a> property does not appy directly to container elements,
+  and therefore does not apply directly to the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element.
+  Because <a class="property" href="render.html#VisibilityControl">visibility</a> is normally inherited,
+  hiding the use element will often hide the child content,
+  but not necessarily.
+  If any graphics elements in the shadow tree have 
+  <span class="prop-value">'visibility:visible'</span> specified, then that
   element will be visible even if the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element specifies <span class="prop-value">'visibility:hidden'</span>.</p>
   
+  <p>
+    In the following example, key style rules are as follows:
+  </p>
+<pre class="css">
+.dark {
+  visibility: hidden;
+}
+.eyes {
+  visibility: visible;
+}
+svg:hover .dark, svg:focus .dark {
+  visibility: visible;
+}
+</pre>
+  <p>
+    The "dark" class is set on the group containing the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> elements,
+    so all parts of the re-used graphics inherit the hidden visibility setting,
+    except for the subtrees with class "eyes", where it is reset to visible.
+    Upon hovering or focusing the graphic, the hiding effect is removed.
+  </p>
+  <div class="figure">
+    <img alt="Multiple use-copies of a creature-symbol on a black background; the use elements have visibility: hidden, but the creatures' eyes have visibility: visible." src="images/struct/Use-visibility-inheritance.png"/>
+    <p class="caption">Example Use-visibility-hidden, default styles</p>
+  </div>
+  <div class="figure">
+    <img alt="Multiple use-copies of a rabbit-symbol on a light green background; each rabbit has different=coloured fur, but the same pink noses and white fluffy tails." src="images/struct/Use-visibility-inheritance.2.png"/>
+    <p class="caption">Example Use-visibility-hidden, interactive styles</p>
+  </div>
+  
+  <p class="view-as-svg"><a href="images/struct/Use-visibility-inheritance.svg">View this example as SVG</a></p>
+  
+  <p>
+    The example also demonstrates inheritance of other style properties
+    (<a class="property" href="painting.html#FillProperty">fill</a> and <a class="property" href="painting.html#StrokeProperty">stroke</a>)
+    specified on the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> elements,
+    and how these are also not used if any elements within the symbol
+    specify explicit values (e.g., the pink noses and ears and the white tails).
+  </p>
 </div>
-    
-<!--
-
-<p><span class="example-ref">Example Use01</span> below has a
-simple <a>'use'</a> on a <a>'rect'</a>.</p>
-
-<edit:example href='images/struct/Use01.svg' name='Use01' description="Simple case of 'use' on a 'rect'" link='yes' image='yes'/>
-
-<p>The visual effect would be equivalent to the following document:</p>
-
-<edit:example href='images/struct/Use01-GeneratedContent.svg' link='yes'/>
-
-<p><span class="example-ref">Example Use02</span> below has a
-<a>'use'</a> on a <a>'symbol'</a>.</p>
-
-<edit:example href='images/struct/Use02.svg' name='Use02' description="'use' on a 'symbol'" link='yes' image='yes'/>
-
-<p>The visual effect would be equivalent to the following document:</p>
-
-<edit:example href='images/struct/Use02-GeneratedContent.svg' link='yes'/>
-
-<p><span class="example-ref">Example Use03</span> illustrates
-what happens when a <a>'use'</a> has
-a <a>'transform'</a> property.</p>
-
-<edit:example href='images/struct/Use03.svg' name='Use03' description="'use' with a 'transform' property" link='yes' image='yes'/>
-
-<p>The visual effect would be equivalent to the following document:</p>
-
-<edit:example href='images/struct/Use03-GeneratedContent.svg' link='yes'/>
-
-<p><span class="example-ref">Example Use04</span> illustrates a
-<a>'use'</a> element with various
-methods of applying CSS styling.</p>
-
-<edit:example href='images/struct/Use04.svg' name='Use04' description="'use' with CSS styling" link='yes' image='yes'/>
-
-<p>The visual effect would be equivalent to the following
-document. Observe that some of the style rules above apply to
-the generated content (i.e., rules 1-6, 10-12), whereas others
-do not (i.e., rules 7-9). The rules which do not affect the
-generated content are:</p>
-
-<ul>
-  <li>Rules 7 and 8: CSS selectors only apply to the formal
-  document tree, not on the generated tree; thus, these
-  selectors will not yield a match.</li>
-
-  <li>Rule 9: The generated tree only inherits from the
-  ancestors of the <a>'use'</a>
-  element and does not inherit from the ancestors of the
-  referenced element; thus, this rule does not affect the
-  generated content.</li>
-</ul>
-
-<p>In the generated content below, the selectors that yield a
-match have been transferred into inline <a>'style attribute'</a> attributes for
-illustrative purposes.</p>
-
-<edit:example href='images/struct/Use04-GeneratedContent.svg' link='yes'/>
-
--->
     
 <h3 id="UseMultimedia" class="heading">4.8.4. Multimedia in use-element shadow trees<a class="self-link" href="#UseMultimedia"></a></h3>
   
@@ -1646,16 +1594,6 @@ illustrative purposes.</p>
 </ul>
     
 <h3 id="UseAnimations" class="heading">4.8.5. Animations in use-element shadow trees<a class="self-link" href="#UseAnimations"></a></h3>
-<p class="issue">
-  Update per Brian Birtles recommendations: https://github.com/w3c/svgwg/pull/206#issuecomment-234436749
-  
-  Also, it would be nice to have a TR version of SVG Animations to link to!
-</p>
-  
-<!--
-<p>Animations on a referenced element will cause the instances
-to also be animated.</p>
--->
   
 <p>
   The <a href="https://www.w3.org/TR/web-animations-1/">Web Animations API</a>
@@ -1957,11 +1895,6 @@ other elements (such as via a <span class="element-name">‘<a href="struct.html
   (e.g., a <span class="element-name">‘<a href="pservers.html#PatternElement"><span>pattern</span></a>’</span> or a <span class="element-name">‘<a href="http://dev.w3.org/fxtf/css-masking-1/#MaskElement"><span>mask</span></a>’</span>) 
   will affect whether that child content contributes to the graphical effect.</li>
 </ul>
-  
-<p class="issue" data-issue="69" id="issue69"><a class="self-link" href="#issue69"></a>
-  Need to define how conditional processing affects audio/video and other elements borrowed from HTML.
-  See <a href="https://github.com/w3c/svgwg/issues/44">GitHub issue #44</a>.
-</p>
   
 <div class="note">
   <p>Previous versions of SVG included a third conditional processing attribute,
@@ -3114,13 +3047,14 @@ to be interpreted, the following steps are run:</p>
           <li>Let <var>root</var> be the root of the <var>child</var>'s shadow tree.</li>
           <li>Let <var>descendants</var> be the result of
           <a href="#TermFindIntersectingOrEnclosedDescendants">finding the
-          intersecting (or enclosed) descendants</a> of <var>child</var> with
+          intersecting (or enclosed) descendants</a> of <var>root</var> with
           <var>rectangle</var> in <var>ancestor</var>'s coordinate space.</li>
           <li>If <var>descendants</var> is not empty, then append <var>child</var>
           to <var>result</var>.
-            <p class="note">This means that although we look at the specific
-            content referenced by the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span> element, we don't place the
-            referencing content in the <var>result</var> list; only the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span>
+            <p class="note">This means that although we look at the 
+            the elements in the <a href="struct.html#TermUseElementShadowTree">use-element shadow tree</a>, 
+            we don't place the <a href="struct.html#TermElementInstance">element instances</a> or their <a href="struct.html#TermCorrespondingElement">corresponding element</a>
+            in the <var>result</var> list; only the <span class="element-name">‘<a href="struct.html#UseElement"><span>use</span></a>’</span>
             element itself is returned.</p>
           </li>
         </ol>
@@ -3416,13 +3350,13 @@ then getting these attributes returns null.</p>
   implements the <a class="idlinterface" href="struct.html#InterfaceSVGUseElementShadowRoot">SVGUseElementShadowRoot</a> interface.
   This interface does not currently define any extensions
   to the properties and methods defined for the
-  <a href="https://www.w3.org/TR/shadow-dom/#the-shadowroot-interface">ShadowRoot</a> interface
+  <a class="idlinterface" href="https://www.w3.org/TR/shadow-dom/#the-shadowroot-interface">ShadowRoot</a> interface
   and <a href="https://www.w3.org/TR/shadow-dom/#extensions-to-the-documentorshadowroot-mixin">DocumentOrShadowRoot</a> mixin.
   However, the tree rooted at this node 
   is entirely read-only from the perspective of author scripts.</p>
 
 <pre class="idl">
-interface <b>SVGElementInstance</b> : <a href="https://www.w3.org/TR/shadow-dom/#the-shadowroot-interface">ShadowRoot</a> {
+interface <b>SVGElementInstance</b> : <a class="idlinterface" href="https://www.w3.org/TR/shadow-dom/#the-shadowroot-interface">ShadowRoot</a> {
 
 };</pre>
 
