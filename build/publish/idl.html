@@ -339,6 +339,12 @@ interface <a class="idlinterface" href="struct.html#InterfaceSVGElementInstance"
   [SameObject] readonly attribute <a class="idlinterface" href="struct.html#InterfaceSVGUseElement">SVGUseElement</a>? <a href="struct.html#__svg__SVGElementInstance__correspondingUseElement">correspondingUseElement</a>;
 };
 
+
+[<i>Constructor</i> (<a class="idlinterface" href="https://www.w3.org/TR/web-animations-1/#the-animation-interface">Animation</a> source, <a href="https://svgwg.org/specs/animations/#Animatable">Animatable</a> newTarget) ]
+interface <a class="idlinterface" href="struct.html#InterfaceShadowAnimation">ShadowAnimation</a> : <a class="idlinterface" href="https://www.w3.org/TR/web-animations-1/#the-animation-interface">Animation</a> {
+  [SameObject] readonly attribute <a class="idlinterface" href="https://www.w3.org/TR/web-animations-1/#the-animation-interface">Animation</a> <a href="struct.html#__svg__ShadowAnimation__sourceAnimation">sourceAnimation</a>;
+};
+
 interface <a class="idlinterface" href="struct.html#InterfaceSVGSwitchElement">SVGSwitchElement</a> : <a class="idlinterface" href="types.html#InterfaceSVGGraphicsElement">SVGGraphicsElement</a> {
 };
 

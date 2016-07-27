@@ -25,7 +25,7 @@
 <body class="chapter-struct"><div class="header top"><span class="namedate">SVG 2 – 27 July 2016</span> <a href="Overview.html">Top</a> ⋅ <a href="toc.html">Contents</a> ⋅ <a href="types.html">Previous</a> ⋅ <a href="styling.html">Next</a> ⋅ <a href="eltindex.html">Elements</a> ⋅ <a href="attindex.html">Attributes</a> ⋅ <a href="propidx.html">Properties</a></div>
 
 <h1>Chapter 4: Document Structure</h1><nav id="toc"><h2 id="Contents" class="contents">Contents</h2><ol class="toc"><li><ol class="toc"><li><a href="struct.html#NewDocument"><span class="secno">4.1.</span> Defining an SVG document fragment: the <span class="element-name">‘svg’</span> element</a><ol class="toc"><li><a href="struct.html#NewDocumentOverview"><span class="secno">4.1.1.</span> Overview</a></li><li><a href="struct.html#Namespace"><span class="secno">4.1.2.</span> Namespace</a></li><li><a href="struct.html#Definitions"><span class="secno">4.1.3.</span> Definitions</a></li><li><a href="struct.html#SVGElement"><span class="secno">4.1.4.</span> The <span class="element-name">‘svg’</span> element</a></li></ol></li><li><a href="struct.html#Groups"><span class="secno">4.2.</span> Grouping: the <span class="element-name">‘g’</span> element</a><ol class="toc"><li><a href="struct.html#GroupsOverview"><span class="secno">4.2.1.</span> Overview</a></li><li><a href="struct.html#GElement"><span class="secno">4.2.2.</span> The <span class="element-name">‘g’</span> element</a></li></ol></li><li><a href="struct.html#UnknownElement"><span class="secno">4.3.</span> Unknown elements</a></li><li><a href="struct.html#Head"><span class="secno">4.4.</span> Defining content for reuse, and the <span class="element-name">‘defs’</span> element</a><ol class="toc"><li><a href="struct.html#Overview"><span class="secno">4.4.1.</span> Overview</a></li><li><a href="struct.html#DefsElement"><span class="secno">4.4.2.</span> The <span class="element-name">‘defs’</span> element</a></li></ol></li><li><a href="struct.html#DescriptionAndTitleElements"><span class="secno">4.5.</span> The <span class="element-name">‘desc’</span>
-and <span class="element-name">‘title’</span> elements</a><ol class="toc"><li><a href="struct.html#DescriptionDefinitions"><span class="secno">4.5.1.</span> Definition</a></li></ol></li><li><a href="struct.html#MetadataElement"><span class="secno">4.6.</span> The <span class="element-name">‘metadata’</span> element</a></li><li><a href="struct.html#SymbolElement"><span class="secno">4.7.</span> The <span class="element-name">‘symbol’</span> element</a><ol class="toc"><li><a href="struct.html#SymbolAttributes"><span class="secno">4.7.1.</span> Attributes</a></li><li><a href="struct.html#SymbolNotes"><span class="secno">4.7.2.</span> Notes on symbols</a></li></ol></li><li><a href="struct.html#UseElement"><span class="secno">4.8.</span> The <span class="element-name">‘use’</span> element</a><ol class="toc"><li><a href="struct.html#UseShadowTree"><span class="secno">4.8.1.</span> The use-element shadow tree</a></li><li><a href="struct.html#UseLayout"><span class="secno">4.8.2.</span> Layout of re-used graphics</a></li><li><a href="struct.html#UseStyleInheritance"><span class="secno">4.8.3.</span> Style Scoping and Inheritance</a></li><li><a href="struct.html#UseMultimedia"><span class="secno">4.8.4.</span> Multimedia in use-element shadow trees</a></li><li><a href="struct.html#UseAnimations"><span class="secno">4.8.5.</span> Animations in use-element shadow trees</a></li><li><a href="struct.html#UseEventHandling"><span class="secno">4.8.6.</span> Event handling in use-element shadow trees</a></li></ol></li><li><a href="struct.html#ConditionalProcessing"><span class="secno">4.9.</span> Conditional processing</a><ol class="toc"><li><a href="struct.html#ConditionalProcessingOverview"><span class="secno">4.9.1.</span> Conditional processing overview</a></li><li><a href="struct.html#ConditionalProcessingDefinitions"><span class="secno">4.9.2.</span> Definitions</a></li><li><a href="struct.html#SwitchElement"><span class="secno">4.9.3.</span> The <span class="element-name">‘switch’</span> element</a></li><li><a href="struct.html#ConditionalProcessingRequiredExtensionsAttribute"><span class="secno">4.9.4.</span> The <span class="attr-name">‘requiredExtensions’</span> attribute</a></li><li><a href="struct.html#ConditionalProcessingSystemLanguageAttribute"><span class="secno">4.9.5.</span> The <span class="attr-name">‘systemLanguage’</span> attribute</a></li></ol></li><li><a href="struct.html#HTMLMetadataElements"><span class="secno">4.10.</span> HTML metadata elements</a></li><li><a href="struct.html#CommonAttributes"><span class="secno">4.11.</span> Common attributes</a><ol class="toc"><li><a href="struct.html#CommonAttributeDefinitions"><span class="secno">4.11.1.</span> Definitions</a></li><li><a href="struct.html#Core.attrib"><span class="secno">4.11.2.</span> Attributes common to all elements: <span class="attr-name">‘id’</span></a></li><li><a href="struct.html#LangSpaceAttrs"><span class="secno">4.11.3.</span> The <span class="attr-name">‘lang’</span> and <span class="attr-name">‘xml:lang’</span> attributes</a></li><li><a href="struct.html#WhitespaceProcessingXMLSpaceAttribute"><span class="secno">4.11.4.</span> The <span class="attr-name">‘xml:space’</span> attribute</a></li><li><a href="struct.html#tabindexattribute"><span class="secno">4.11.5.</span> The <span class="attr-name">‘tabindex’</span> attribute</a></li><li><a href="struct.html#DataAttributes"><span class="secno">4.11.6.</span> The <span class="attr-name">‘data-*’</span> attributes</a></li></ol></li><li><a href="struct.html#WAIARIAAttributes"><span class="secno">4.12.</span> WAI-ARIA attributes</a><ol class="toc"><li><a href="struct.html#WAIARIA-definitions"><span class="secno">4.12.1.</span> Definitions</a></li><li><a href="struct.html#roleattribute"><span class="secno">4.12.2.</span> Role attribute</a></li><li><a href="struct.html#ARIAStateandPropertyAttributes"><span class="secno">4.12.3.</span> State and property attributes (all aria- attributes)</a></li><li><a href="struct.html#implicit-aria-semantics"><span class="secno">4.12.4.</span> Implicit and Allowed ARIA Semantics</a></li></ol></li><li><a href="struct.html#DOMInterfaces"><span class="secno">4.13.</span> DOM interfaces</a><ol class="toc"><li><a href="struct.html#InterfaceDocumentExtensions"><span class="secno">4.13.1.</span> Extensions to the Document interface</a></li><li><a href="struct.html#InterfaceSVGSVGElement"><span class="secno">4.13.2.</span> Interface SVGSVGElement</a></li><li><a href="struct.html#InterfaceSVGGElement"><span class="secno">4.13.3.</span> Interface SVGGElement</a></li><li><a href="struct.html#InterfaceSVGUnknownElement"><span class="secno">4.13.4.</span> Interface SVGUnknownElement</a></li><li><a href="struct.html#InterfaceSVGDefsElement"><span class="secno">4.13.5.</span> Interface SVGDefsElement</a></li><li><a href="struct.html#InterfaceSVGDescElement"><span class="secno">4.13.6.</span> Interface SVGDescElement</a></li><li><a href="struct.html#InterfaceSVGMetadataElement"><span class="secno">4.13.7.</span> Interface SVGMetadataElement</a></li><li><a href="struct.html#InterfaceSVGTitleElement"><span class="secno">4.13.8.</span> Interface SVGTitleElement</a></li><li><a href="struct.html#InterfaceSVGSymbolElement"><span class="secno">4.13.9.</span> Interface SVGSymbolElement</a></li><li><a href="struct.html#InterfaceSVGUseElement"><span class="secno">4.13.10.</span> Interface SVGUseElement</a></li><li><a href="struct.html#InterfaceSVGUseElementShadowRoot"><span class="secno">4.13.11.</span> Interface SVGUseElementShadowRoot</a></li><li><a href="struct.html#InterfaceSVGElementInstance"><span class="secno">4.13.12.</span> Interface SVGElementInstance</a></li><li><a href="struct.html#InterfaceSVGSwitchElement"><span class="secno">4.13.13.</span> Interface SVGSwitchElement</a></li><li><a href="struct.html#InterfaceGetSVGDocument"><span class="secno">4.13.14.</span> Interface GetSVGDocument</a></li></ol></li></ol></li></ol></nav>
+and <span class="element-name">‘title’</span> elements</a><ol class="toc"><li><a href="struct.html#DescriptionDefinitions"><span class="secno">4.5.1.</span> Definition</a></li></ol></li><li><a href="struct.html#MetadataElement"><span class="secno">4.6.</span> The <span class="element-name">‘metadata’</span> element</a></li><li><a href="struct.html#SymbolElement"><span class="secno">4.7.</span> The <span class="element-name">‘symbol’</span> element</a><ol class="toc"><li><a href="struct.html#SymbolAttributes"><span class="secno">4.7.1.</span> Attributes</a></li><li><a href="struct.html#SymbolNotes"><span class="secno">4.7.2.</span> Notes on symbols</a></li></ol></li><li><a href="struct.html#UseElement"><span class="secno">4.8.</span> The <span class="element-name">‘use’</span> element</a><ol class="toc"><li><a href="struct.html#UseShadowTree"><span class="secno">4.8.1.</span> The use-element shadow tree</a></li><li><a href="struct.html#UseLayout"><span class="secno">4.8.2.</span> Layout of re-used graphics</a></li><li><a href="struct.html#UseStyleInheritance"><span class="secno">4.8.3.</span> Style Scoping and Inheritance</a></li><li><a href="struct.html#UseMultimedia"><span class="secno">4.8.4.</span> Multimedia in use-element shadow trees</a></li><li><a href="struct.html#UseAnimations"><span class="secno">4.8.5.</span> Animations in use-element shadow trees</a></li><li><a href="struct.html#UseEventHandling"><span class="secno">4.8.6.</span> Event handling in use-element shadow trees</a></li></ol></li><li><a href="struct.html#ConditionalProcessing"><span class="secno">4.9.</span> Conditional processing</a><ol class="toc"><li><a href="struct.html#ConditionalProcessingOverview"><span class="secno">4.9.1.</span> Conditional processing overview</a></li><li><a href="struct.html#ConditionalProcessingDefinitions"><span class="secno">4.9.2.</span> Definitions</a></li><li><a href="struct.html#SwitchElement"><span class="secno">4.9.3.</span> The <span class="element-name">‘switch’</span> element</a></li><li><a href="struct.html#ConditionalProcessingRequiredExtensionsAttribute"><span class="secno">4.9.4.</span> The <span class="attr-name">‘requiredExtensions’</span> attribute</a></li><li><a href="struct.html#ConditionalProcessingSystemLanguageAttribute"><span class="secno">4.9.5.</span> The <span class="attr-name">‘systemLanguage’</span> attribute</a></li></ol></li><li><a href="struct.html#HTMLMetadataElements"><span class="secno">4.10.</span> HTML metadata elements</a></li><li><a href="struct.html#CommonAttributes"><span class="secno">4.11.</span> Common attributes</a><ol class="toc"><li><a href="struct.html#CommonAttributeDefinitions"><span class="secno">4.11.1.</span> Definitions</a></li><li><a href="struct.html#Core.attrib"><span class="secno">4.11.2.</span> Attributes common to all elements: <span class="attr-name">‘id’</span></a></li><li><a href="struct.html#LangSpaceAttrs"><span class="secno">4.11.3.</span> The <span class="attr-name">‘lang’</span> and <span class="attr-name">‘xml:lang’</span> attributes</a></li><li><a href="struct.html#WhitespaceProcessingXMLSpaceAttribute"><span class="secno">4.11.4.</span> The <span class="attr-name">‘xml:space’</span> attribute</a></li><li><a href="struct.html#tabindexattribute"><span class="secno">4.11.5.</span> The <span class="attr-name">‘tabindex’</span> attribute</a></li><li><a href="struct.html#DataAttributes"><span class="secno">4.11.6.</span> The <span class="attr-name">‘data-*’</span> attributes</a></li></ol></li><li><a href="struct.html#WAIARIAAttributes"><span class="secno">4.12.</span> WAI-ARIA attributes</a><ol class="toc"><li><a href="struct.html#WAIARIA-definitions"><span class="secno">4.12.1.</span> Definitions</a></li><li><a href="struct.html#roleattribute"><span class="secno">4.12.2.</span> Role attribute</a></li><li><a href="struct.html#ARIAStateandPropertyAttributes"><span class="secno">4.12.3.</span> State and property attributes (all aria- attributes)</a></li><li><a href="struct.html#implicit-aria-semantics"><span class="secno">4.12.4.</span> Implicit and Allowed ARIA Semantics</a></li></ol></li><li><a href="struct.html#DOMInterfaces"><span class="secno">4.13.</span> DOM interfaces</a><ol class="toc"><li><a href="struct.html#InterfaceDocumentExtensions"><span class="secno">4.13.1.</span> Extensions to the Document interface</a></li><li><a href="struct.html#InterfaceSVGSVGElement"><span class="secno">4.13.2.</span> Interface SVGSVGElement</a></li><li><a href="struct.html#InterfaceSVGGElement"><span class="secno">4.13.3.</span> Interface SVGGElement</a></li><li><a href="struct.html#InterfaceSVGUnknownElement"><span class="secno">4.13.4.</span> Interface SVGUnknownElement</a></li><li><a href="struct.html#InterfaceSVGDefsElement"><span class="secno">4.13.5.</span> Interface SVGDefsElement</a></li><li><a href="struct.html#InterfaceSVGDescElement"><span class="secno">4.13.6.</span> Interface SVGDescElement</a></li><li><a href="struct.html#InterfaceSVGMetadataElement"><span class="secno">4.13.7.</span> Interface SVGMetadataElement</a></li><li><a href="struct.html#InterfaceSVGTitleElement"><span class="secno">4.13.8.</span> Interface SVGTitleElement</a></li><li><a href="struct.html#InterfaceSVGSymbolElement"><span class="secno">4.13.9.</span> Interface SVGSymbolElement</a></li><li><a href="struct.html#InterfaceSVGUseElement"><span class="secno">4.13.10.</span> Interface SVGUseElement</a></li><li><a href="struct.html#InterfaceSVGUseElementShadowRoot"><span class="secno">4.13.11.</span> Interface SVGUseElementShadowRoot</a></li><li><a href="struct.html#InterfaceSVGElementInstance"><span class="secno">4.13.12.</span> Interface SVGElementInstance</a></li><li><a href="struct.html#InterfaceShadowAnimation"><span class="secno">4.13.13.</span> Interface ShadowAnimation</a></li><li><a href="struct.html#InterfaceSVGSwitchElement"><span class="secno">4.13.14.</span> Interface SVGSwitchElement</a></li><li><a href="struct.html#InterfaceGetSVGDocument"><span class="secno">4.13.15.</span> Interface GetSVGDocument</a></li></ol></li></ol></li></ol></nav>
 
 <h2 id="NewDocument" class="heading">4.1. Defining an SVG document fragment: the <span class="element-name">‘svg’</span> element<a class="self-link" href="#NewDocument"></a></h2>
 
@@ -1698,36 +1698,29 @@ to also be animated.</p>
   For animation effects applied
   using a <a href="https://www.w3.org/TR/web-animations-1/">Web Animations API</a> method  
   <a href="refs.html#ref-WAAPI">[WAAPI]</a>,
-  the user agent must create a read-only <dfn id="TermAnimationInstance">animation instance</dfn>
-  targetting an <a href="struct.html#TermElementInstance">element instance</a> in the shadow tree
-  for each <dfn id="TermCorrespondingAnimation">corresponding animation</dfn> object
-  that target's that shadow element's <a href="struct.html#TermCorrespondingElement">corresponding element</a>.
-  Specifically,
-  the user agent must generate a new <a href="https://www.w3.org/TR/web-animations-1/#the-animation-interface"><code>Animation</code></a> object,
-  with its <a href="https://www.w3.org/TR/web-animations-1/#dom-animation-timeline"><code>timeline</code></a>
-  set to the document timeline,
-  and with its <a href="https://www.w3.org/TR/web-animations-1/#dom-animation-effect"><code>effect</code></a> created by constructing a new
-  <a href="https://www.w3.org/TR/web-animations-1/#keyframeeffectreadonly"><code>KeyframeEffectReadOnly</code></a> 
-  using the keyframe effect of the <a href="struct.html#TermCorrespondingAnimation">corresponding animation</a> as its source,
-  and then modifying its <a href="https://www.w3.org/TR/web-animations-1/#dom-keyframeeffectreadonly-target"><code>target</code></a>
-  to point to the <a href="struct.html#TermElementInstance">element instance</a> instead of the <a href="struct.html#TermCorrespondingElement">corresponding element</a>.
+  if the target of the animation is a <a href="struct.html#TermCorrespondingElement">corresponding element</a>
+  to an <a href="struct.html#TermElementInstance">element instance</a> in a shadow tree, 
+  the user agent must construct a <a class="idlinterface" href="struct.html#InterfaceShadowAnimation">ShadowAnimation</a>
+  whose source is that <a class="idlinterface" href="https://www.w3.org/TR/web-animations-1/#the-animation-interface">Animation</a> object
+  and whose target is the <a href="struct.html#TermElementInstance">element instance</a>.
+  If there are multiple instances of the element in different trees,
+  then there will be multiple shadow animations, one for each.
 </p>
 <p>
-  The user agent must create such an <a href="struct.html#TermAnimationInstance">animation instance</a>
-  for all animations in effect 
+  The user agent must create such a <a class="idlinterface" href="struct.html#InterfaceShadowAnimation">ShadowAnimation</a>
+  for all Web Animations API animations in effect 
   (including pending and frozen animations)
   at the time the shadow tree is generated,
-  and any new animations applied while the shadow tree exists.
-  The user agent must not clone animation objects
-  that were generated based on CSS animations or animation elements
+  and for any new animations applied while the shadow tree exists.
+  The user agent must not create <a class="idlinterface" href="struct.html#InterfaceShadowAnimation">ShadowAnimation</a> objects
+  for CSS animations or animation elements
   (as these are duplicated separately).
 </p>
   
-<p>
-  Each <a href="struct.html#TermAnimationInstance">animation instance</a> created for the shadow tree is read-only.
-  However, the user agent must ensure that
-  any changes to the <a href="struct.html#TermCorrespondingAnimation">corresponding animation</a> are reflected 
-  in changes to the relevant <a href="struct.html#TermAnimationInstance">animation instance</a>.
+<p class="note">
+  As part of the inteface definition,
+  a <a class="idlinterface" href="struct.html#InterfaceShadowAnimation">ShadowAnimation</a> is read-only,
+  and must reflect any changes to its <a href="struct.html#__svg__ShadowAnimation__sourceAnimation">sourceAnimation</a>.
 </p>
 
 <p>
@@ -3478,8 +3471,49 @@ or is null otherwise.</p>
 points to the <a href="struct.html#TermCorrespondingUseElement">corresponding use element</a> if this element is an <a href="struct.html#TermElementInstance">element instance</a> in a <a href="struct.html#TermUseElementShadowTree">use-element shadow tree</a>,
 or is null otherwise.</p>
 
+<h3 id="InterfaceShadowAnimation" class="heading">4.13.13. Interface ShadowAnimation<a class="self-link" href="#InterfaceShadowAnimation"></a></h3>
+  
+<p>The <a class="idlinterface" href="struct.html#InterfaceShadowAnimation">ShadowAnimation</a> inteface defines a read-only <a class="idlinterface" href="https://www.w3.org/TR/web-animations-1/#the-animation-interface">Animation</a> object,
+  which mirrors all changes to the <a href="struct.html#__svg__ShadowAnimation__sourceAnimation">sourceAnimation</a> object
+  from which it was constructed.
+  They are used to mirror author-initiated animation objects in the
+  <a href="struct.html#TermUseElementShadowTree">use-element shadow tree</a>.
+</p>
+  
 
-<h3 id="InterfaceSVGSwitchElement" class="heading">4.13.13. Interface SVGSwitchElement<a class="self-link" href="#InterfaceSVGSwitchElement"></a></h3>
+<pre class="idl">
+[<i>Constructor</i> (<a class="idlinterface" href="https://www.w3.org/TR/web-animations-1/#the-animation-interface">Animation</a> source, <a href="https://svgwg.org/specs/animations/#Animatable">Animatable</a> newTarget) ]
+interface <b>ShadowAnimation</b> : <a class="idlinterface" href="https://www.w3.org/TR/web-animations-1/#the-animation-interface">Animation</a> {
+  [SameObject] readonly attribute <a class="idlinterface" href="https://www.w3.org/TR/web-animations-1/#the-animation-interface">Animation</a> <a href="#__svg__ShadowAnimation__sourceAnimation">sourceAnimation</a>;
+};</pre>
+  
+<p>The <b id="__svg__ShadowAnimation__sourceAnimation">sourceAnimation</b> IDL property
+  points to the <a class="idlinterface" href="https://www.w3.org/TR/web-animations-1/#the-animation-interface">Animation</a> object passed in the constructor.
+</p>
+  
+<p>
+  The constructor generates a new <a class="idlinterface" href="struct.html#InterfaceShadowAnimation">ShadowAnimation</a> object,
+  which reflects all properties on the <a href="struct.html#__svg__ShadowAnimation__sourceAnimation">sourceAnimation</a>,
+  except that its <a href="https://www.w3.org/TR/web-animations-1/#dom-animation-effect"><code>effect</code></a> is created by constructing a new
+  <a href="https://www.w3.org/TR/web-animations-1/#keyframeeffectreadonly"><code>KeyframeEffectReadOnly</code></a> 
+  using the keyframe effect of the <a href="struct.html#__svg__ShadowAnimation__sourceAnimation">sourceAnimation</a> as its source,
+  and then modifying its <a href="https://www.w3.org/TR/web-animations-1/#dom-keyframeeffectreadonly-target"><code>target</code></a>
+  to match the <code>newTarget</code> parameter.
+</p>
+
+  
+<p>
+  A <a class="idlinterface" href="struct.html#InterfaceShadowAnimation">ShadowAnimation</a> is read-only.
+  Any attempt to set any of the inherited IDL properties, 
+  or call any of the <a class="idlinterface" href="https://www.w3.org/TR/web-animations-1/#the-animation-interface">Animation</a> methods that change its state,
+  must throw a <code>NoModificationAllowedError</code>.
+  However, the user agent must ensure that
+  any changes to the properties or state
+  of the <a href="struct.html#__svg__ShadowAnimation__sourceAnimation">sourceAnimation</a> are reflected 
+  in changes to the <a class="idlinterface" href="struct.html#InterfaceShadowAnimation">ShadowAnimation</a>.
+</p>
+  
+<h3 id="InterfaceSVGSwitchElement" class="heading">4.13.14. Interface SVGSwitchElement<a class="self-link" href="#InterfaceSVGSwitchElement"></a></h3>
 
 
 
@@ -3491,7 +3525,7 @@ or is null otherwise.</p>
 
 
 
-<h3 id="InterfaceGetSVGDocument" class="heading">4.13.14. Interface GetSVGDocument<a class="self-link" href="#InterfaceGetSVGDocument"></a></h3>
+<h3 id="InterfaceGetSVGDocument" class="heading">4.13.15. Interface GetSVGDocument<a class="self-link" href="#InterfaceGetSVGDocument"></a></h3>
 
 <p>This interface provides access to an SVG document embedded by reference
 in another DOM-based language. The expectation is that the interface is
