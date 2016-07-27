@@ -895,23 +895,6 @@ to create an <a>element instance</a>
 within the <a>use-element shadow tree</a>
 behaves as a symbol definition, and must not be rendered.
 </p>
-  
-<div class="issue">
-  <p>
-  The use of !important user agent rules
-  is technically a breaking change from SVG 1.1,
-  because it means the computed style value will change.
-  The final rendering behavior, however,
-  is consistent with the prose previously used to describe the rendering of symbols
-  and other never-rendered elements.
-  </p>
-  <p>
-  Note that, since a symbol element can now be rendered 
-  (when it is the instance root of a shadow tree)
-  I have upgraded the SVGSymbolElement interface to inherit from SVGGraphicsElement,
-  so that the rendered element in the shadow tree has BBox and related methods.
-  </p>
-</div>
 
 
 </edit:with>
@@ -1026,102 +1009,38 @@ reasons. In particular, this specification does not allow cross-origin resource 
 A future version of this or another specification may provide a method of securely enabling cross-origin re-use
 of assets.
 </p>
-
-
-</edit:with>
-
-<h3 id="UseHref">Resolving cross-references</h3>
   
-<p class="issue">
-  Should this section, or parts of it, be moved to the Linking chapter,
-  and made to apply for all external resources
-  (e.g., external paint servers, filters, etc.)?
-</p>
-  
-<p>
-A <a>'use'</a> element that has just been created (by script or by the document parser) is in an <dfn id="TermUnresolvedUseElement">unresolved</dfn> state.
-If the <a>'use'</a> element has a non-empty <a>'href'</a> attribute
+<p>When the <a>'href'</a> attribute is set
 (or, in the absence of an <a>'href'</a> attribute, an <a>'xlink:href'</a> attribute),
-then the user agent must attempt to parse the value of the attribute as a URI.
-If this results in a valid URI, the user agent must attempt to resolve the URI to identify a specific <a>referenced element</a>, as follows:
+the user agent must <a href="linking.html#processingURL">process the URL</a>.
+The target element that results from URL processing is the <a>referenced element</a> of the <a>'use'</a>.
 </p>
-<ul>
-  <li>
-    <p>If the URI targets an element in the same document,
-      and that element currently exists in the DOM,
-      then that element becomes the <a>referenced element</a>
-      for the <a>'use'</a> element, which is now in a resolved state.
-    </p>
-  </li>
-  <li>
-    <p>If the URI targets an element in the same document,
-      but no such element currently exists in the DOM,
-      then observe mutations to the DOM 
-      until the URI can be successfully resolved
-      to define the <a>referenced element</a>.
-    </p>
-  </li>
-  <li>
-    <p>If the URI refers to another document, 
-      and the processing mode or security restrictions on this document allow it to be accessed,
-      fetch that document and process it in <a>secure static mode</a> 
-      (meaning, do not fetch any additional external resources and do not run scripts or play animations or video).
-      If a document at the same URI has already been fetched and processed,
-      the user agent may re-use the same document object model generated from it.
-      A document model generated from an external reference in a <a>'use'</a> element
-      must be read-only and cannot be modified.
-    </p>
-    <p class="issue">  
-      Do we need to reference specifics re fetching an external document and security modes?
-    </p>
-    <p>  
-      After parsing the document:
-    </p>
-    <ul>
-      <li>If the URI does not specify an element <a>'id'</a> in a target fragment,
-      the <a>referenced element</a> is the root element of that document.</li>
-      <li>If the URI does include a target fragment, 
-      and a matching element can be found, 
-      that element is the <a>referenced element</a>.</li>
-      <li>Otherwise, if the target cannot be matched in the referenced document
-      after the document has been fully processed in static mode,
-      then the <a>'use'</a> element is no longer <a>unresolved</a>,
-      but is in error.</li>
-    </ul>
-  </li>
-  <li>
-    <p>If the URI refers to another document 
-      which cannot be accessed (for whatever reason),
-      then the <a>'use'</a> element is no longer <a>unresolved</a>,
-      but is in error.
-    </p>
-  </li>
-</ul>
-
-<p>If the <a>referenced element</a> that results from resolving the URI 
+  
+<p>If the <a>referenced element</a> that results from resolving the URL 
   is neither an SVG element 
   nor an HTML-namespaced element 
   <a href="embedded.html#HTMLElements">that may be included as a child of an SVG container element</a>, 
-  then the <a>'use'</a> element is in error.
+  then reference is <a>invalid</a> and the <a>'use'</a> element is in error.
+</p>
+<p>
   If the referenced element is a (shadow-including) ancestor
   of the <a>'use'</a> element, 
   then this is an <a>invalid circular reference</a>
   and the <a>'use'</a> element is in error.
+</p>
+<p>
   Otherwise, the user agent must generate a <a>shadow tree</a>
   of <a>re-used graphics</a> to render as the contents of the <a>'use'</a> element,
-  as described in the next section, <a href="#UseShadowTree">The use-element shadow tree</a>.</p>
+  as described in the next section, <a href="#UseShadowTree">The use-element shadow tree</a>.
+</p>
   
-<p>A <a>'use'</a> that is <a>unresolved</a> or in error is not rendered.
+<p>A <a>'use'</a> that has an <a>unresolved</a> or <a>invalid</a> URL reference
+  is not rendered.
   For the purpose of bounding box calculations,
   it is equivalent to an empty container element.</p>
+
+</edit:with>
   
-<p>If the <a>'href'</a> attribute for the <a>'use'</a> is modified or animated, 
-or if <a>'href'</a> is not present and the <a>'xlink:href'</a> attribute is modified or animated,
-or if the <a>'id'</a> attribute on the <a>referenced element</a> is modified,
-or if the <a>referenced element</a> is removed from the DOM,
-then the <a>'use'</a> element returns to the <a>unresolved</a> state.
-The user agent must once again attempt to resolve the URI to identify the referenced element.
-</p>
 
 <h3 id="UseShadowTree">The use-element shadow tree</h3>
   
@@ -1278,7 +1197,7 @@ as described futher in the section on <a href="#UseStyleInheritance">style inher
   
 <p>
 If either the <a>'use'</a> element or the <a>referenced element</a> is altered
-in a way that causes the <a>'use'</a> element to return to an <a>unresolved</a> state,
+in a way that causes the <a>'use'</a> element's URL reference to become <a>unresolved</a> again,
 then the entire shadow tree for that use element is discarded.
 </p>
 
@@ -1505,9 +1424,6 @@ or from their effect in CSS box layout.
   User agents may re-use the same stylesheet objects for any shadow trees
   that reference that same external document.
 </p>
-  
-<p class="issue">That's a "may", not a "must", in case there are any
-  security considerations that would make re-using objects a problem.</p>
   
 <p>
   Style rules that are scoped to the shadow tree
@@ -1772,18 +1688,6 @@ to also be animated.</p>
   must throw a <code>NoModificationAllowedError</code>.
 </p>
   
-<p class="issue">
-  This behavior ensures that all WAAPI animations can be polyfilled with
-  simple JS animations manipulating DOM attributes on the original elements.
-  The WAAPI spec may need to be updated to indicate that the no-modification error may be thrown.
-  (Or another error name, if it makes more sense?)
-  There must be other cases where an element or pseudo-element would reject an animation,
-  so probably a good idea to have an error as an option.
-  The only other approach would be to silently ignore any animations set
-  on a read-only element in the shadow tree,
-  and silent errors are generally not a good thing.
-</p>
-  
 <p>
   For each <a>animation element</a> that targets an element in the
   <a>referenced document subtree</a>, 
@@ -1797,16 +1701,6 @@ to also be animated.</p>
   that has the same effect as if it was a node in the shadow tree.
   The effective document order for these generated animation elements
   must be the same as the document order for their <a>corresponding elements</a>.
-</p>
-  
-<p class="issue">
-  Is it going to be an implementation hassle to have
-  detached Element objects that must behave as if they are part of the node tree?
-  Another option would be to actually make them additional
-  child nodes of the ShadowRoot node.
-  I don't think that would have any problematic side effects,
-  although I'd need to change the wording a few places
-  where I specify that the use-element shadow root only ever has one child.
 </p>
   
 <p>
@@ -1851,15 +1745,6 @@ to also be animated.</p>
   with its begin time 
   adjusted backwards in the document timeline
   to match the timing of the <a>corresponding element</a>.
-</p>
-  
-<p class="issue">
-  Is distinguishing between <code>begin="target.event"</code> 
-  and <code>begin="event"</code> 
-  worth the extra implementation complexity?
-  It creates useful functionality
-  and is consistent with the CSS model, 
-  but it is technically a breaking change from SVG 1.1.
 </p>
   
 <div class="note">
